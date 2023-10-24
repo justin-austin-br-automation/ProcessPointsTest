@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<Configuration>
+  <Element ID="MainLoop" Type="sector">
+    <Selector ID="Type" Value="Composed">
+      <Group ID="StartSegment">
+        <Property ID="SegmentRef" Value="::A01" />
+      </Group>
+      <Group ID="IntermediateSegments">
+        <Property ID="SegmentRef[1]" Value="::A02" />
+        <Property ID="SegmentRef[2]" Value="::A03" />
+        <Property ID="SegmentRef[3]" Value="::A04" />
+        <Property ID="SegmentRef[4]" Value="::A05" />
+        <Property ID="SegmentRef[5]" Value="::A06" />
+        <Property ID="SegmentRef[6]" Value="::A07" />
+        <Property ID="SegmentRef[7]" Value="::A08" />
+        <Property ID="SegmentRef[8]" Value="::A09" />
+        <Property ID="SegmentRef[9]" Value="::A10" />
+        <Property ID="SegmentRef[10]" Value="::A11" />
+        <Property ID="SegmentRef[11]" Value="::A12" />
+        <Property ID="SegmentRef[12]" Value="::A13" />
+        <Property ID="SegmentRef[13]" Value="::A14" />
+        <Property ID="SegmentRef[14]" Value="::A15" />
+      </Group>
+      <Group ID="EndSegment">
+        <Property ID="SegmentRef" Value="::A16" />
+        <Property ID="PositionRelativeTo" Value="FromEnd" />
+      </Group>
+    </Selector>
+    <Selector ID="Alarms" Value="None" />
+  </Element>
+  <Element ID="MaintLoop" Type="sector">
+    <Selector ID="Type" Value="Composed">
+      <Group ID="StartSegment">
+        <Property ID="SegmentRef" Value="::B11" />
+      </Group>
+      <Group ID="IntermediateSegments">
+        <Property ID="SegmentRef[1]" Value="::B10" />
+        <Property ID="SegmentRef[2]" Value="::B09" />
+        <Property ID="SegmentRef[3]" Value="::B08" />
+        <Property ID="SegmentRef[4]" Value="::B07" />
+        <Property ID="SegmentRef[5]" Value="::B06" />
+        <Property ID="SegmentRef[6]" Value="::B05" />
+        <Property ID="SegmentRef[7]" Value="::B04" />
+        <Property ID="SegmentRef[8]" Value="::B03" />
+        <Property ID="SegmentRef[9]" Value="::B02" />
+      </Group>
+      <Group ID="EndSegment">
+        <Property ID="SegmentRef" Value="::B01" />
+        <Property ID="PositionRelativeTo" Value="FromEnd" />
+      </Group>
+    </Selector>
+    <Selector ID="Alarms" Value="None" />
+  </Element>
+  <Element ID="Barrier" Type="sector">
+    <Selector ID="Type" Value="Composed">
+      <Group ID="StartSegment">
+        <Property ID="SegmentRef" Value="::A08" />
+      </Group>
+      <Group ID="EndSegment">
+        <Property ID="SegmentRef" Value="::A08" />
+        <Property ID="PositionRelativeTo" Value="FromEnd" />
+      </Group>
+    </Selector>
+    <Selector ID="Alarms" Value="None" />
+  </Element>
+  <Element ID="ProcessPoints" Type="sector">
+    <Selector ID="Type" Value="Composed">
+      <Group ID="StartSegment">
+        <Property ID="SegmentRef" Value="::A14" />
+      </Group>
+      <Group ID="IntermediateSegments">
+        <Property ID="SegmentRef[1]" Value="::A15" />
+      </Group>
+      <Group ID="EndSegment">
+        <Property ID="SegmentRef" Value="::A16" />
+        <Property ID="PositionRelativeTo" Value="FromEnd" />
+      </Group>
+    </Selector>
+    <Selector ID="Alarms" Value="None" />
+  </Element>
+  <Element ID="MaintPoint" Type="sector">
+    <Selector ID="Type" Value="Composed">
+      <Group ID="StartSegment">
+        <Property ID="SegmentRef" Value="::B06" />
+      </Group>
+      <Group ID="EndSegment">
+        <Property ID="SegmentRef" Value="::B06" />
+        <Property ID="PositionRelativeTo" Value="FromEnd" />
+      </Group>
+    </Selector>
+    <Selector ID="Alarms" Value="None" />
+  </Element>
+</Configuration>
