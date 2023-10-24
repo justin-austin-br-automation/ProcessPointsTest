@@ -1,5 +1,225 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio Version=4.11.6.26 FileVersion="4.9"?>
 <Hardware xmlns="http://br-automation.co.at/AS/Hardware">
-  <Module Name="PC" Type="PC_any" Version="1.1.1.0" OrderNumber="PC" />
+  <Module Name="5LS182.6-1" Type="5LS182.6-1" Version="1.3.1.0">
+    <Connection Connector="PLK2" TargetModule="8F1I01.AA66.xxxx-1f" TargetConnector="PLK3">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="SL" TargetModule="PC" TargetConnector="SL1" />
+  </Module>
+  <Module Name="8F1I01.AA66.xxxx-1" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.BA2B.xxxx-1" TargetConnector="PLK2" NodeNumber="6">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="8F1I01.AA66.xxxx-1a" TargetConnector="PLK1" NodeNumber="6">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.AA66.xxxx-1a" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.AA66.xxxx-1" TargetConnector="PLK2" NodeNumber="7">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="8F1I01.AA66.xxxx-1b" TargetConnector="PLK1" NodeNumber="7">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.AA66.xxxx-1b" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.AA66.xxxx-1a" TargetConnector="PLK2" NodeNumber="8">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.AA66.xxxx-1c" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.BA2B.xxxx-1a" TargetConnector="PLK2" NodeNumber="14">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="8F1I01.AA66.xxxx-1d" TargetConnector="PLK1" NodeNumber="14">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.AA66.xxxx-1d" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.AA66.xxxx-1c" TargetConnector="PLK2" NodeNumber="15">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="8F1I01.AA66.xxxx-1e" TargetConnector="PLK1" NodeNumber="15">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.AA66.xxxx-1e" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.AA66.xxxx-1d" TargetConnector="PLK2" NodeNumber="16">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="8F1I01.AB2B.xxxx-1" TargetConnector="PLK1" NodeNumber="16">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.AA66.xxxx-1f" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.BA2B.xxxx-1c" TargetConnector="PLK2" NodeNumber="17">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="8F1I01.AB2B.xxxx-1b" TargetConnector="PLK1" NodeNumber="17">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK3" TargetModule="5LS182.6-1" TargetConnector="PLK2" NodeNumber="17">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.AB2B.xxxx-1" Type="8F1I01.AB2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.AA66.xxxx-1e" TargetConnector="PLK2" NodeNumber="1">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="8F1I01.BB4B.xxxx-1" TargetConnector="PLK1" NodeNumber="1">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK3" TargetModule="5LS182.6-1" TargetConnector="IF1" NodeNumber="1">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.AB2B.xxxx-1a" Type="8F1I01.AB2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK2" TargetModule="8F1I01.BB4B.xxxx-1c" TargetConnector="PLK1" NodeNumber="9">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.AB2B.xxxx-1b" Type="8F1I01.AB2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.AA66.xxxx-1f" TargetConnector="PLK2" NodeNumber="18">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="8F1I01.BB4B.xxxx-1f" TargetConnector="PLK1" NodeNumber="18">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.AB2B.xxxx-1c" Type="8F1I01.AB2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK2" TargetModule="8F1I01.BB4B.xxxx-1k" TargetConnector="PLK1" NodeNumber="27">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.BA2B.xxxx-1" Type="8F1I01.BA2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.BB4B.xxxx-1b" TargetConnector="PLK2" NodeNumber="5">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="8F1I01.AA66.xxxx-1" TargetConnector="PLK1" NodeNumber="5">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.BA2B.xxxx-1a" Type="8F1I01.BA2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.BB4B.xxxx-1e" TargetConnector="PLK2" NodeNumber="13">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="8F1I01.AA66.xxxx-1c" TargetConnector="PLK1" NodeNumber="13">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.BA2B.xxxx-1b" Type="8F1I01.BA2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.BB4B.xxxx-1h" TargetConnector="PLK2" NodeNumber="22">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.BA2B.xxxx-1c" Type="8F1I01.BA2B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.BB4B.xxxx-1i" TargetConnector="PLK2" NodeNumber="23">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="8F1I01.AA66.xxxx-1f" TargetConnector="PLK1" NodeNumber="23">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.BB4B.xxxx-1" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.AB2B.xxxx-1" TargetConnector="PLK2" NodeNumber="2">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="8F1I01.BB4B.xxxx-1a" TargetConnector="PLK1" NodeNumber="2">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.BB4B.xxxx-1a" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.BB4B.xxxx-1" TargetConnector="PLK2" NodeNumber="3">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="8F1I01.BB4B.xxxx-1b" TargetConnector="PLK1" NodeNumber="3">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.BB4B.xxxx-1b" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.BB4B.xxxx-1a" TargetConnector="PLK2" NodeNumber="4">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="8F1I01.BA2B.xxxx-1" TargetConnector="PLK1" NodeNumber="4">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.BB4B.xxxx-1c" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.AB2B.xxxx-1a" TargetConnector="PLK2" NodeNumber="10">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="8F1I01.BB4B.xxxx-1d" TargetConnector="PLK1" NodeNumber="10">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.BB4B.xxxx-1d" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.BB4B.xxxx-1c" TargetConnector="PLK2" NodeNumber="11">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="8F1I01.BB4B.xxxx-1e" TargetConnector="PLK1" NodeNumber="11">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.BB4B.xxxx-1e" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.BB4B.xxxx-1d" TargetConnector="PLK2" NodeNumber="12">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="8F1I01.BA2B.xxxx-1a" TargetConnector="PLK1" NodeNumber="12">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.BB4B.xxxx-1f" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.AB2B.xxxx-1b" TargetConnector="PLK2" NodeNumber="19">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="8F1I01.BB4B.xxxx-1g" TargetConnector="PLK1" NodeNumber="19">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.BB4B.xxxx-1g" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.BB4B.xxxx-1f" TargetConnector="PLK2" NodeNumber="20">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="8F1I01.BB4B.xxxx-1h" TargetConnector="PLK1" NodeNumber="20">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.BB4B.xxxx-1h" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.BB4B.xxxx-1g" TargetConnector="PLK2" NodeNumber="21">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="8F1I01.BA2B.xxxx-1b" TargetConnector="PLK1" NodeNumber="21">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.BB4B.xxxx-1i" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.BB4B.xxxx-1j" TargetConnector="PLK2" NodeNumber="24">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="8F1I01.BA2B.xxxx-1c" TargetConnector="PLK1" NodeNumber="24">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.BB4B.xxxx-1j" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.BB4B.xxxx-1k" TargetConnector="PLK2" NodeNumber="25">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="8F1I01.BB4B.xxxx-1i" TargetConnector="PLK1" NodeNumber="25">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="8F1I01.BB4B.xxxx-1k" Type="8F1I01.BB4B.xxxx-1" Version="1.0.0.2">
+    <Connection Connector="PLK1" TargetModule="8F1I01.AB2B.xxxx-1c" TargetConnector="PLK2" NodeNumber="26">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="8F1I01.BB4B.xxxx-1j" TargetConnector="PLK1" NodeNumber="26">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+  </Module>
+  <Module Name="PC" Type="PC_any" Version="1.1.1.0" OrderNumber="PC">
+    <Group ID="FileDevice1" />
+    <Parameter ID="FileDeviceName1" Value="USER" />
+    <Parameter ID="FileDevicePath1" Value="USER_PATH" />
+  </Module>
 </Hardware>

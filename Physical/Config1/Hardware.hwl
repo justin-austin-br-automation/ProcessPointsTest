@@ -2,11 +2,295 @@
 <?AutomationStudio FileVersion="4.9"?>
 <BR.AS.HardwareTopology>
   <TimeStamps>
-    <TimeStamp LogicalPath="Config1.Hardware.hw" LastWriteTime="10/24/2023 10:34:38" />
+    <TimeStamp LogicalPath="Config1.Hardware.hw" LastWriteTime="10/24/2023 11:11:15" />
   </TimeStamps>
   <Modules>
     <Module Name="PC" Type="PC_any" X="100" Y="100" />
+    <Module Name="5LS182.6-1" Type="5LS182.6-1" X="418" Y="110" />
+    <Module Name="8F1I01.AB2B.xxxx-1" Type="8F1I01.AB2B.xxxx-1" X="827.2222" Y="465.888855" RotationAngle="180" />
+    <Module Name="8F1I01.BB4B.xxxx-1" Type="8F1I01.BB4B.xxxx-1" X="977.0223" Y="474.088867" RotationAngle="225" />
+    <Module Name="8F1I01.BB4B.xxxx-1a" Type="8F1I01.BB4B.xxxx-1" X="1030.32227" Y="548.088867" RotationAngle="270" />
+    <Module Name="8F1I01.BB4B.xxxx-1b" Type="8F1I01.BB4B.xxxx-1" X="977.622253" Y="611.088867" RotationAngle="315" />
+    <Module Name="8F1I01.BA2B.xxxx-1" Type="8F1I01.BA2B.xxxx-1" X="828.0223" Y="664.888855" />
+    <Module Name="8F1I01.AA66.xxxx-1" Type="8F1I01.AA66.xxxx-1" X="564.0222" Y="674.888855" />
+    <Module Name="8F1I01.AA66.xxxx-1a" Type="8F1I01.AA66.xxxx-1" X="300.8222" Y="674.888855" />
+    <Module Name="8F1I01.AA66.xxxx-1b" Type="8F1I01.AA66.xxxx-1" X="37.6222534" Y="674.888855" />
+    <Module Name="8F1I01.AB2B.xxxx-1a" Type="8F1I01.AB2B.xxxx-1" X="-140.777771" Y="664.888855" />
+    <Module Name="8F1I01.BB4B.xxxx-1c" Type="8F1I01.BB4B.xxxx-1" X="-213.644409" Y="611.1333" RotationAngle="45" />
+    <Module Name="8F1I01.BB4B.xxxx-1d" Type="8F1I01.BB4B.xxxx-1" X="-216.344391" Y="548.3555" RotationAngle="90" />
+    <Module Name="8F1I01.BB4B.xxxx-1e" Type="8F1I01.BB4B.xxxx-1" X="-211.377777" Y="475.577759" RotationAngle="135" />
+    <Module Name="8F1I01.BA2B.xxxx-1a" Type="8F1I01.BA2B.xxxx-1" X="-138.066681" Y="467.8" RotationAngle="180" />
+    <Module Name="8F1I01.AA66.xxxx-1c" Type="8F1I01.AA66.xxxx-1" X="39.93332" Y="467.8" RotationAngle="180" />
+    <Module Name="8F1I01.AA66.xxxx-1d" Type="8F1I01.AA66.xxxx-1" X="303.133331" Y="467.8" RotationAngle="180" />
+    <Module Name="8F1I01.AA66.xxxx-1e" Type="8F1I01.AA66.xxxx-1" X="565.3222" Y="466.244446" RotationAngle="180" />
+    <Module Name="8F1I01.AA66.xxxx-1f" Type="8F1I01.AA66.xxxx-1" X="564.0222" Y="939.064758" />
+    <Module Name="8F1I01.AB2B.xxxx-1b" Type="8F1I01.AB2B.xxxx-1" X="385.6222" Y="929.064758" />
+    <Module Name="8F1I01.BB4B.xxxx-1f" Type="8F1I01.BB4B.xxxx-1" X="312.4155" Y="874.4722" RotationAngle="45" />
+    <Module Name="8F1I01.BB4B.xxxx-1g" Type="8F1I01.BB4B.xxxx-1" X="307.2636" Y="812.1739" RotationAngle="90" />
+    <Module Name="8F1I01.BB4B.xxxx-1h" Type="8F1I01.BB4B.xxxx-1" X="309.894653" Y="738.8241" RotationAngle="135" />
+    <Module Name="8F1I01.BA2B.xxxx-1b" Type="8F1I01.BA2B.xxxx-1" X="381.126465" Y="730.4118" RotationAngle="180" />
+    <Module Name="8F1I01.BA2B.xxxx-1c" Type="8F1I01.BA2B.xxxx-1" X="827.2222" Y="929.064758" />
+    <Module Name="8F1I01.BB4B.xxxx-1i" Type="8F1I01.BB4B.xxxx-1" X="975.311646" Y="875.8217" RotationAngle="315" />
+    <Module Name="8F1I01.BB4B.xxxx-1j" Type="8F1I01.BB4B.xxxx-1" X="1026.94275" Y="813.5235" RotationAngle="270" />
+    <Module Name="8F1I01.BB4B.xxxx-1k" Type="8F1I01.BB4B.xxxx-1" X="974.894043" Y="742.2766" RotationAngle="225" />
+    <Module Name="8F1I01.AB2B.xxxx-1c" Type="8F1I01.AB2B.xxxx-1" X="827.4737" Y="734.922058" RotationAngle="180" />
   </Modules>
-  <Links />
+  <Links>
+    <Link From="8F1I01.AB2B.xxxx-1" To="8F1I01.BB4B.xxxx-1" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="936.2222" Y="512.888855" />
+      <Point X="936.2222" Y="512.888855" />
+      <Point X="936.2222" Y="522.888855" />
+      <Point X="936.2222" Y="534.088867" />
+      <Point X="976.0223" Y="534.088867" />
+      <Point X="1004.02228" Y="534.088867" />
+      <Point X="1004.02228" Y="534.088867" />
+    </Link>
+    <Link From="8F1I01.BB4B.xxxx-1" To="8F1I01.BB4B.xxxx-1a" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="1020.02228" Y="549.088867" />
+      <Point X="1020.02228" Y="549.088867" />
+      <Point X="1020.02228" Y="577.088867" />
+      <Point X="1020.02228" Y="584.088867" />
+      <Point X="1028.82227" Y="584.088867" />
+      <Point X="1033.82227" Y="584.088867" />
+      <Point X="1033.82227" Y="584.088867" />
+    </Link>
+    <Link From="8F1I01.BB4B.xxxx-1b" To="8F1I01.BA2B.xxxx-1" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="1004.62225" Y="654.088867" />
+      <Point X="1004.62225" Y="654.088867" />
+      <Point X="976.622253" Y="654.088867" />
+      <Point X="937.622253" Y="654.088867" />
+      <Point X="937.622253" Y="663.888855" />
+      <Point X="937.622253" Y="672.888855" />
+      <Point X="937.622253" Y="672.888855" />
+    </Link>
+    <Link From="8F1I01.BB4B.xxxx-1a" To="8F1I01.BB4B.xxxx-1b" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="1033.82227" Y="605.088867" />
+      <Point X="1033.82227" Y="605.088867" />
+      <Point X="1028.82227" Y="605.088867" />
+      <Point X="1019.62225" Y="605.088867" />
+      <Point X="1019.62225" Y="610.088867" />
+      <Point X="1019.62225" Y="638.088867" />
+      <Point X="1019.62225" Y="638.088867" />
+    </Link>
+    <Link From="8F1I01.BA2B.xxxx-1" To="8F1I01.AA66.xxxx-1" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="879.622253" Y="677.2889" />
+      <Point X="879.622253" Y="677.2889" />
+      <Point X="879.622253" Y="664.2889" />
+      <Point X="879.622253" Y="653.888855" />
+      <Point X="725.2222" Y="653.888855" />
+      <Point X="725.2222" Y="674.488831" />
+      <Point X="725.2222" Y="680.488831" />
+      <Point X="725.2222" Y="680.488831" />
+    </Link>
+    <Link From="8F1I01.AA66.xxxx-1" To="8F1I01.AA66.xxxx-1a" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="666.422241" Y="680.488831" />
+      <Point X="666.422241" Y="680.488831" />
+      <Point X="666.422241" Y="674.488831" />
+      <Point X="666.422241" Y="663.888855" />
+      <Point X="462.022156" Y="663.888855" />
+      <Point X="462.022156" Y="674.488831" />
+      <Point X="462.022156" Y="680.488831" />
+      <Point X="462.022156" Y="680.488831" />
+    </Link>
+    <Link From="8F1I01.AA66.xxxx-1a" To="8F1I01.AA66.xxxx-1b" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="403.222229" Y="680.488831" />
+      <Point X="403.222229" Y="680.488831" />
+      <Point X="403.222229" Y="674.488831" />
+      <Point X="403.222229" Y="663.888855" />
+      <Point X="198.8222" Y="663.888855" />
+      <Point X="198.8222" Y="674.488831" />
+      <Point X="198.8222" Y="680.488831" />
+      <Point X="198.8222" Y="680.488831" />
+    </Link>
+    <Link From="8F1I01.AB2B.xxxx-1a" To="8F1I01.BB4B.xxxx-1c" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="-71.97775" Y="673.2888" />
+      <Point X="-71.97775" Y="673.2888" />
+      <Point X="-71.97775" Y="664.2888" />
+      <Point X="-71.97775" Y="653.1333" />
+      <Point X="-110.644409" Y="653.1333" />
+      <Point X="-138.644409" Y="653.1333" />
+      <Point X="-138.644409" Y="653.1333" />
+    </Link>
+    <Link From="8F1I01.BB4B.xxxx-1c" To="8F1I01.BB4B.xxxx-1d" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="-154.644409" Y="638.1333" />
+      <Point X="-154.644409" Y="638.1333" />
+      <Point X="-154.644409" Y="610.1333" />
+      <Point X="-154.644409" Y="604.3555" />
+      <Point X="-161.844391" Y="604.3555" />
+      <Point X="-166.844391" Y="604.3555" />
+      <Point X="-166.844391" Y="604.3555" />
+    </Link>
+    <Link From="8F1I01.BB4B.xxxx-1d" To="8F1I01.BB4B.xxxx-1e" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="-166.844391" Y="583.3555" />
+      <Point X="-166.844391" Y="583.3555" />
+      <Point X="-161.844391" Y="583.3555" />
+      <Point X="-151.377777" Y="583.3555" />
+      <Point X="-151.377777" Y="578.577759" />
+      <Point X="-151.377777" Y="550.577759" />
+      <Point X="-151.377777" Y="550.577759" />
+    </Link>
+    <Link From="8F1I01.BB4B.xxxx-1e" To="8F1I01.BA2B.xxxx-1a" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="-136.377777" Y="534.577759" />
+      <Point X="-136.377777" Y="534.577759" />
+      <Point X="-109.377777" Y="534.577759" />
+      <Point X="-69.06668" Y="534.577759" />
+      <Point X="-69.06668" Y="524.8" />
+      <Point X="-69.06668" Y="515.8" />
+      <Point X="-69.06668" Y="515.8" />
+    </Link>
+    <Link From="8F1I01.BA2B.xxxx-1a" To="8F1I01.AA66.xxxx-1c" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="-12.0666847" Y="510.8" />
+      <Point X="-12.0666847" Y="510.8" />
+      <Point X="-12.0666847" Y="524.8" />
+      <Point X="-12.0666847" Y="535" />
+      <Point X="142.433319" Y="535" />
+      <Point X="142.433319" Y="514.8" />
+      <Point X="142.433319" Y="507.8" />
+      <Point X="142.433319" Y="507.8" />
+    </Link>
+    <Link From="8F1I01.AA66.xxxx-1c" To="8F1I01.AA66.xxxx-1d" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="200.433319" Y="507.8" />
+      <Point X="200.433319" Y="507.8" />
+      <Point X="200.433319" Y="514.8" />
+      <Point X="200.433319" Y="525" />
+      <Point X="405.633331" Y="525" />
+      <Point X="405.633331" Y="514.8" />
+      <Point X="405.633331" Y="507.8" />
+      <Point X="405.633331" Y="507.8" />
+    </Link>
+    <Link From="8F1I01.AA66.xxxx-1d" To="8F1I01.AA66.xxxx-1e" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="463.633331" Y="507.8" />
+      <Point X="463.633331" Y="507.8" />
+      <Point X="463.633331" Y="514.8" />
+      <Point X="463.633331" Y="525" />
+      <Point X="667.8222" Y="525" />
+      <Point X="667.8222" Y="513.244446" />
+      <Point X="667.8222" Y="506.244446" />
+      <Point X="667.8222" Y="506.244446" />
+    </Link>
+    <Link From="8F1I01.AA66.xxxx-1e" To="8F1I01.AB2B.xxxx-1" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="725.8222" Y="506.244446" />
+      <Point X="725.8222" Y="506.244446" />
+      <Point X="725.8222" Y="513.244446" />
+      <Point X="725.8222" Y="535" />
+      <Point X="879.2222" Y="535" />
+      <Point X="879.2222" Y="522.888855" />
+      <Point X="879.2222" Y="508.888855" />
+      <Point X="879.2222" Y="508.888855" />
+    </Link>
+    <Link From="5LS182.6-1" To="8F1I01.AA66.xxxx-1f" FromPort="PLK2" ToPort="PLK3" IsRoutedByUser="False">
+      <Point X="459" Y="130" />
+      <Point X="459" Y="130" />
+      <Point X="464" Y="130" />
+      <Point X="695.6222" Y="130" />
+      <Point X="695.6222" Y="938.664856" />
+      <Point X="695.6222" Y="944.664856" />
+      <Point X="695.6222" Y="944.664856" />
+    </Link>
+    <Link From="8F1I01.AA66.xxxx-1f" To="8F1I01.AB2B.xxxx-1b" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="666.422241" Y="944.664856" />
+      <Point X="666.422241" Y="944.664856" />
+      <Point X="666.422241" Y="938.664856" />
+      <Point X="666.422241" Y="919.3936" />
+      <Point X="512.822266" Y="919.3936" />
+      <Point X="512.822266" Y="928.4648" />
+      <Point X="512.822266" Y="941.4648" />
+      <Point X="512.822266" Y="941.4648" />
+    </Link>
+    <Link From="8F1I01.AB2B.xxxx-1b" To="8F1I01.BB4B.xxxx-1f" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="454.42218" Y="937.4648" />
+      <Point X="454.42218" Y="937.4648" />
+      <Point X="454.42218" Y="928.4648" />
+      <Point X="454.42218" Y="916.4722" />
+      <Point X="415.4155" Y="916.4722" />
+      <Point X="387.4155" Y="916.4722" />
+      <Point X="387.4155" Y="916.4722" />
+    </Link>
+    <Link From="8F1I01.BB4B.xxxx-1f" To="8F1I01.BB4B.xxxx-1g" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="371.4155" Y="901.4722" />
+      <Point X="371.4155" Y="901.4722" />
+      <Point X="371.4155" Y="873.4722" />
+      <Point X="371.4155" Y="868.1739" />
+      <Point X="361.7636" Y="868.1739" />
+      <Point X="356.7636" Y="868.1739" />
+      <Point X="356.7636" Y="868.1739" />
+    </Link>
+    <Link From="8F1I01.BB4B.xxxx-1g" To="8F1I01.BB4B.xxxx-1h" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="356.7636" Y="847.1739" />
+      <Point X="356.7636" Y="847.1739" />
+      <Point X="361.7636" Y="847.1739" />
+      <Point X="369.894653" Y="847.1739" />
+      <Point X="369.894653" Y="841.8241" />
+      <Point X="369.894653" Y="813.8241" />
+      <Point X="369.894653" Y="813.8241" />
+    </Link>
+    <Link From="8F1I01.BB4B.xxxx-1h" To="8F1I01.BA2B.xxxx-1b" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="384.894653" Y="797.8241" />
+      <Point X="384.894653" Y="797.8241" />
+      <Point X="412.894653" Y="797.8241" />
+      <Point X="450.126465" Y="797.8241" />
+      <Point X="450.126465" Y="787.4118" />
+      <Point X="450.126465" Y="778.4118" />
+      <Point X="450.126465" Y="778.4118" />
+    </Link>
+    <Link From="8F1I01.AA66.xxxx-1f" To="8F1I01.BA2B.xxxx-1c" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
+      <Point X="725.2222" Y="944.664856" />
+      <Point X="725.2222" Y="944.664856" />
+      <Point X="725.2222" Y="938.664856" />
+      <Point X="725.2222" Y="919.3936" />
+      <Point X="878.8222" Y="919.3936" />
+      <Point X="878.8222" Y="928.4648" />
+      <Point X="878.8222" Y="941.4648" />
+      <Point X="878.8222" Y="941.4648" />
+    </Link>
+    <Link From="8F1I01.BA2B.xxxx-1c" To="8F1I01.BB4B.xxxx-1i" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
+      <Point X="936.822266" Y="937.064758" />
+      <Point X="936.822266" Y="937.064758" />
+      <Point X="936.822266" Y="928.064758" />
+      <Point X="936.822266" Y="918.8217" />
+      <Point X="974.311646" Y="918.8217" />
+      <Point X="1002.31165" Y="918.8217" />
+      <Point X="1002.31165" Y="918.8217" />
+    </Link>
+    <Link From="8F1I01.BB4B.xxxx-1i" To="8F1I01.BB4B.xxxx-1j" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
+      <Point X="1017.31165" Y="902.8217" />
+      <Point X="1017.31165" Y="902.8217" />
+      <Point X="1017.31165" Y="874.8217" />
+      <Point X="1017.31165" Y="870.5235" />
+      <Point X="1025.44275" Y="870.5235" />
+      <Point X="1030.44275" Y="870.5235" />
+      <Point X="1030.44275" Y="870.5235" />
+    </Link>
+    <Link From="8F1I01.BB4B.xxxx-1j" To="8F1I01.BB4B.xxxx-1k" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
+      <Point X="1030.44275" Y="849.5235" />
+      <Point X="1030.44275" Y="849.5235" />
+      <Point X="1025.44275" Y="849.5235" />
+      <Point X="1017.89404" Y="849.5235" />
+      <Point X="1017.89404" Y="845.2766" />
+      <Point X="1017.89404" Y="817.2766" />
+      <Point X="1017.89404" Y="817.2766" />
+    </Link>
+    <Link From="8F1I01.BB4B.xxxx-1k" To="8F1I01.AB2B.xxxx-1c" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
+      <Point X="1001.89404" Y="802.2766" />
+      <Point X="1001.89404" Y="802.2766" />
+      <Point X="973.894043" Y="802.2766" />
+      <Point X="936.4737" Y="802.2766" />
+      <Point X="936.4737" Y="791.922058" />
+      <Point X="936.4737" Y="781.922058" />
+      <Point X="936.4737" Y="781.922058" />
+    </Link>
+    <Link From="8F1I01.AB2B.xxxx-1" To="5LS182.6-1" FromPort="PLK3" ToPort="IF1" IsRoutedByUser="True">
+      <Point X="908.2222" Y="510.888855" />
+      <Point X="908.2222" Y="510.888855" />
+      <Point X="908.2222" Y="522.888855" />
+      <Point X="897.7359" Y="522.888855" />
+      <Point X="897.7359" Y="518" />
+      <Point X="897.478638" Y="518" />
+      <Point X="897.478638" Y="118" />
+      <Point X="464" Y="118" />
+      <Point X="459" Y="118" />
+      <Point X="459" Y="118" />
+    </Link>
+  </Links>
   <InfoElements />
 </BR.AS.HardwareTopology>
