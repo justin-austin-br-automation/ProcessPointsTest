@@ -6,5 +6,6 @@
     <Object Type="File">ShuttleCon.shuttlestereotype</Object>
     <Object Type="File">Sectors.sector</Object>
     <Object Type="File">ShuttleSim.assemblyfeature</Object>
+    <Object Type="File">Points.processpointlist</Object>
   </Objects>
 </Package>

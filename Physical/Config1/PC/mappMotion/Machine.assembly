@@ -107,7 +107,7 @@
       </Group>
     </Group>
     <Group ID="Shuttles">
-      <Property ID="MaxShuttleCount" Value="0" />
+      <Property ID="MaxShuttleCount" Value="50" />
       <Property ID="MaxShuttleCommandCount" Value="0" />
       <Property ID="Deceleration" Value="0.0" />
       <Property ID="UseConvoys" Value="Inactive" />
@@ -116,7 +116,7 @@
         <Property ID="ErrorStop" Value="0.006" />
       </Group>
       <Group ID="ShuttleStereotypes">
-        <Property ID="ShuttleStRef[1]" />
+        <Property ID="ShuttleStRef[1]" Value="ShuttleStereotype_1" />
       </Group>
       <Group ID="MagnetPlateConfigurations">
         <Selector ID="ShuttleType[1]" Value="8F1SA.100.xxxxxx-x" />

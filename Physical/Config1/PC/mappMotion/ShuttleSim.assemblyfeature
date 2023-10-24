@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
 <Configuration>
-  <Element ID="AssemblyFeature_1" Type="assemblyfeature">
-    <Selector ID="Type" Value="Coupling">
-      <Group ID="CouplingObject[1]">
-        <Property ID="Name" Value="myCoupling" />
-        <Property ID="ShuttleCount" Value="0" />
-        <Property ID="CamAutomat" />
-        <Property ID="CamList" />
+  <Element ID="ShuttleSim" Type="assemblyfeature">
+    <Selector ID="Type" Value="InitShuttleSim">
+      <Group ID="InitShuttleSim[1]">
+        <Property ID="SectorRef" />
+        <Property ID="Orientation" Value="Positive" />
+        <Selector ID="ShuttleDefinition" Value="SingleShuttleDefinition">
+          <Property ID="Position[1]" Value="0.0" />
+        </Selector>
       </Group>
     </Selector>
   </Element>
