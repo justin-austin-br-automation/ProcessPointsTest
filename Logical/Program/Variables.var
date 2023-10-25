@@ -5,6 +5,14 @@ VAR
 	AsmGetShuttle : MC_BR_AsmGetShuttle_AcpTrak;
 	AsmStop : MC_BR_AsmStop_AcpTrak;
 	AsmReadStatus : MC_BR_AsmReadStatus_AcpTrak;
+	BufferBarrier : ProcessPointsFubsType;
+	WorkZone : ProcessPointsFubsType;
+	WorkStation1 : ProcessPointsFubsType;
+	WorkStation2 : ProcessPointsFubsType;
+	WorkStation3 : ProcessPointsFubsType;
+	WorkStation4 : ProcessPointsFubsType;
+	MaintenanceStation : ProcessPointsFubsType;
+	ThroughputStation : ProcessPointsFubsType;
 END_VAR
 (*Structures*)
 VAR

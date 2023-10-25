@@ -8,6 +8,62 @@ PROGRAM _INIT
 	AsmReadStatus.Assembly := ADR(gAssembly_1);
 	AsmReadStatus.Enable := TRUE;
 	
+	BufferBarrier.Command.ProcessPoint := ADR(BufferZone);
+	BufferBarrier.GetShuttle.ProcessPoint := ADR(BufferZone);
+	BufferBarrier.ReadInfo.ProcessPoint := ADR(BufferZone);
+	BufferBarrier.Command.Command := mcACPTRAK_BARRIER_OPEN;
+	BufferBarrier.Command.Execute := TRUE;
+	BufferBarrier.Command();
+	
+	WorkZone.Command.ProcessPoint := ADR(Station0);
+	WorkZone.GetShuttle.ProcessPoint := ADR(Station0);
+	WorkZone.ReadInfo.ProcessPoint := ADR(Station0);
+	WorkZone.Command.Command := mcACPTRAK_BARRIER_OPEN;
+	WorkZone.Command.Execute := TRUE;
+	WorkZone.Command();
+	
+	WorkStation1.Command.ProcessPoint := ADR(Station1);
+	WorkStation1.GetShuttle.ProcessPoint := ADR(Station1);
+	WorkStation1.ReadInfo.ProcessPoint := ADR(Station1);
+	WorkStation1.Command.Command := mcACPTRAK_BARRIER_CLOSE;
+	WorkStation1.Command.Execute := TRUE;
+	WorkStation1.Command();
+	
+	WorkStation2.Command.ProcessPoint := ADR(Station2);
+	WorkStation2.GetShuttle.ProcessPoint := ADR(Station2);
+	WorkStation2.ReadInfo.ProcessPoint := ADR(Station2);
+	WorkStation2.Command.Command := mcACPTRAK_BARRIER_CLOSE;
+	WorkStation2.Command.Execute := TRUE;
+	WorkStation2.Command();
+	
+	WorkStation3.Command.ProcessPoint := ADR(Station3);
+	WorkStation3.GetShuttle.ProcessPoint := ADR(Station3);
+	WorkStation3.ReadInfo.ProcessPoint := ADR(Station3);
+	WorkStation3.Command.Command := mcACPTRAK_BARRIER_CLOSE;
+	WorkStation3.Command.Execute := TRUE;
+	WorkStation3.Command();
+	
+	WorkStation4.Command.ProcessPoint := ADR(Station4);
+	WorkStation4.GetShuttle.ProcessPoint := ADR(Station4);
+	WorkStation4.ReadInfo.ProcessPoint := ADR(Station4);
+	WorkStation4.Command.Command := mcACPTRAK_BARRIER_CLOSE;
+	WorkStation4.Command.Execute := TRUE;
+	WorkStation4.Command();
+	
+	MaintenanceStation.Command.ProcessPoint := ADR(MaintenancePoint);
+	MaintenanceStation.GetShuttle.ProcessPoint := ADR(MaintenancePoint);
+	MaintenanceStation.ReadInfo.ProcessPoint := ADR(MaintenancePoint);
+	MaintenanceStation.Command.Command := mcACPTRAK_BARRIER_CLOSE;
+	MaintenanceStation.Command.Execute := TRUE;
+	MaintenanceStation.Command();
+	
+	ThroughputStation.Command.ProcessPoint := ADR(Throughput);
+	ThroughputStation.GetShuttle.ProcessPoint := ADR(Throughput);
+	ThroughputStation.ReadInfo.ProcessPoint := ADR(Throughput);
+	ThroughputStation.Command.Command := mcACPTRAK_BARRIER_OPEN;
+	ThroughputStation.Command.Execute := TRUE;
+	ThroughputStation.Command();
+	
 	(* Initializing parameters for shuttle movements *)
 	gTrakAsm.Parameter := SHUTTLE_PARAMETERS;
 END_PROGRAM
@@ -20,6 +76,15 @@ PROGRAM _CYCLIC
 	CASE Step OF
 		
 		POWER_OFF:
+			BufferBarrier.Command.Execute := FALSE;
+			WorkZone.Command.Execute := FALSE;
+			WorkStation1.Command.Execute := FALSE;
+			WorkStation2.Command.Execute := FALSE;
+			WorkStation3.Command.Execute := FALSE;
+			WorkStation4.Command.Execute := FALSE;
+			MaintenanceStation.Command.Execute := FALSE;
+			ThroughputStation.Command.Execute := FALSE;
+			
 			IF gTrakAsm.Status.Disabled THEN
 				AsmPowerOff.Execute := FALSE;
 				Step := POWERED_OFF;
@@ -89,22 +154,29 @@ PROGRAM _CYCLIC
 			
 		START_MOVEMENT:
 			FOR CurrentShuttleNumber := 1 TO gTrakAsm.ShuttleCnt BY 1 DO
-				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.Axis := ADR(ShuttleList[CurrentShuttleNumber].ShuttleReference);
-				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.Sector := ADR(MainLoop);
-				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.Velocity := gTrakAsm.Parameter.Velocity;
-				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.RouteVelocity := gTrakAsm.Parameter.Velocity;
-				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.Acceleration := gTrakAsm.Parameter.Acceleration;
-				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.Deceleration := gTrakAsm.Parameter.Deceleration;
-				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.Jerk := 0.0;
-				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.BufferMode := mcABORTING;
-				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.Execute := TRUE;
+				ShuttleList[CurrentShuttleNumber].ElasticMoveVel.Axis := ADR(ShuttleList[CurrentShuttleNumber].ShuttleReference);
+				ShuttleList[CurrentShuttleNumber].ElasticMoveVel.Velocity := gTrakAsm.Parameter.Velocity;
+				ShuttleList[CurrentShuttleNumber].ElasticMoveVel.Acceleration := gTrakAsm.Parameter.Acceleration;
+				ShuttleList[CurrentShuttleNumber].ElasticMoveVel.Deceleration := gTrakAsm.Parameter.Deceleration;
+				ShuttleList[CurrentShuttleNumber].ElasticMoveVel.Jerk := 0.0;
+				ShuttleList[CurrentShuttleNumber].ElasticMoveVel.Direction := mcDIR_POSITIVE;
+				ShuttleList[CurrentShuttleNumber].ElasticMoveVel.BufferMode := mcABORTING;
+				ShuttleList[CurrentShuttleNumber].ElasticMoveVel.Execute := TRUE;
+			END_FOR
+			
+			Step := WAIT_START_MOVEMENT;
+			
+		WAIT_START_MOVEMENT:
+			FOR CurrentShuttleNumber := 1 TO gTrakAsm.ShuttleCnt BY 1 DO
+				ShuttleList[CurrentShuttleNumber].ElasticMoveVel.Execute := FALSE;
 			END_FOR
 			
 			Step := MOVING;
 			
-		WAIT_START_MOVEMENT:
-			
 		MOVING:
+			ActBufferBarrier;
+			ActWorkStation1;
+			
 			IF gTrakAsm.Command.StopMovement THEN
 				gTrakAsm.Command.StopMovement := FALSE;
 				Step := STOPPING;

@@ -5,5 +5,13 @@
     <File Description="Init, cyclic, exit code">Main.st</File>
     <File Description="Local data types" Private="true">Types.typ</File>
     <File Description="Local variables" Private="true">Variables.var</File>
+    <File>ActBufferBarrier.st</File>
+    <File>ActWorkZone.st</File>
+    <File>ActWorkStation1.st</File>
+    <File>ActWorkStation2.st</File>
+    <File>ActWorkStation3.st</File>
+    <File>ActWorkStation4.st</File>
+    <File>ActMaintenanceStation.st</File>
+    <File>ActThroughputStation.st</File>
   </Files>
 </Program>
