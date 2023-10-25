@@ -1,0 +1,21 @@
+(*Function Blocks*)
+VAR
+	AsmPowerOn : MC_BR_AsmPowerOn_AcpTrak;
+	AsmPowerOff : MC_BR_AsmPowerOff_AcpTrak;
+	AsmGetShuttle : MC_BR_AsmGetShuttle_AcpTrak;
+	AsmStop : MC_BR_AsmStop_AcpTrak;
+	AsmReadStatus : MC_BR_AsmReadStatus_AcpTrak;
+END_VAR
+(*Structures*)
+VAR
+	ShuttleList : ARRAY[1..MAX_SHUTTLE_CNT] OF ShuttleControlType;
+END_VAR
+(*Constants*)
+VAR CONSTANT
+	SHUTTLE_PARAMETERS : TrakAssemblyParameterType := (Velocity:=2.0,Acceleration:=20.0,Deceleration:=20.0);
+	MAX_SHUTTLE_CNT : USINT := 50;
+END_VAR
+(*Enumerations*)
+VAR
+	Step : StateMachineEnum := POWERED_OFF;
+END_VAR
