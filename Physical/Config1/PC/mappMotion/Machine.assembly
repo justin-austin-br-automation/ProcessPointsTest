@@ -140,6 +140,9 @@
         </Group>
       </Group>
     </Group>
+    <Group ID="AssemblyFeatures">
+      <Property ID="AssemblyFeatureRef[1]" Value="ShuttleSim" />
+    </Group>
     <Group ID="Visualization">
       <Property ID="MonitoringPv" />
       <Property ID="ProcessingTaskClass" Value="4" />

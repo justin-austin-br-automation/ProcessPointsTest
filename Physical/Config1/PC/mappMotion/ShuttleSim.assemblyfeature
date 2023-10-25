@@ -4,10 +4,12 @@
   <Element ID="ShuttleSim" Type="assemblyfeature">
     <Selector ID="Type" Value="InitShuttleSim">
       <Group ID="InitShuttleSim[1]">
-        <Property ID="SectorRef" />
+        <Property ID="SectorRef" Value="MainLoop" />
         <Property ID="Orientation" Value="Positive" />
-        <Selector ID="ShuttleDefinition" Value="SingleShuttleDefinition">
-          <Property ID="Position[1]" Value="0.0" />
+        <Selector ID="ShuttleDefinition" Value="ShuttleSetDefinition">
+          <Property ID="StartPosition" Value="0.0" />
+          <Property ID="NumberOfShuttles" Value="3" />
+          <Property ID="DistnaceBetweenShuttles" Value="0.15" />
         </Selector>
       </Group>
     </Selector>

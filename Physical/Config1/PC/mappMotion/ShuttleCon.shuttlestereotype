@@ -11,11 +11,11 @@
       </Selector>
       <Property ID="AccelerationIsReadOnly" Value="0" />
       <Selector ID="Acceleration">
-        <Property ID="Acceleration" Value="10.0" />
+        <Property ID="Acceleration" Value="100.0" />
       </Selector>
       <Property ID="DecelerationIsReadOnly" Value="0" />
       <Selector ID="Deceleration">
-        <Property ID="Deceleration" Value="10.0" />
+        <Property ID="Deceleration" Value="100.0" />
       </Selector>
       <Property ID="UpdateMode" Value="Immediately" />
     </Selector>
