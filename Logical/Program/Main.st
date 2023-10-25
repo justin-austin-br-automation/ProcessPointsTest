@@ -24,6 +24,7 @@ PROGRAM _INIT
 	
 	WorkStation1.Command.ProcessPoint := ADR(Station1);
 	WorkStation1.GetShuttle.ProcessPoint := ADR(Station1);
+	WorkStation1.GetShuttle.Enable := TRUE;
 	WorkStation1.ReadInfo.ProcessPoint := ADR(Station1);
 	WorkStation1.Command.Command := mcACPTRAK_BARRIER_CLOSE;
 	WorkStation1.Command.Execute := TRUE;
@@ -31,6 +32,7 @@ PROGRAM _INIT
 	
 	WorkStation2.Command.ProcessPoint := ADR(Station2);
 	WorkStation2.GetShuttle.ProcessPoint := ADR(Station2);
+	WorkStation2.GetShuttle.Enable := TRUE;
 	WorkStation2.ReadInfo.ProcessPoint := ADR(Station2);
 	WorkStation2.Command.Command := mcACPTRAK_BARRIER_CLOSE;
 	WorkStation2.Command.Execute := TRUE;
@@ -38,6 +40,7 @@ PROGRAM _INIT
 	
 	WorkStation3.Command.ProcessPoint := ADR(Station3);
 	WorkStation3.GetShuttle.ProcessPoint := ADR(Station3);
+	WorkStation3.GetShuttle.Enable := TRUE;
 	WorkStation3.ReadInfo.ProcessPoint := ADR(Station3);
 	WorkStation3.Command.Command := mcACPTRAK_BARRIER_CLOSE;
 	WorkStation3.Command.Execute := TRUE;
@@ -45,6 +48,7 @@ PROGRAM _INIT
 	
 	WorkStation4.Command.ProcessPoint := ADR(Station4);
 	WorkStation4.GetShuttle.ProcessPoint := ADR(Station4);
+	WorkStation4.GetShuttle.Enable := TRUE;
 	WorkStation4.ReadInfo.ProcessPoint := ADR(Station4);
 	WorkStation4.Command.Command := mcACPTRAK_BARRIER_CLOSE;
 	WorkStation4.Command.Execute := TRUE;
@@ -154,28 +158,33 @@ PROGRAM _CYCLIC
 			
 		START_MOVEMENT:
 			FOR CurrentShuttleNumber := 1 TO gTrakAsm.ShuttleCnt BY 1 DO
-				ShuttleList[CurrentShuttleNumber].ElasticMoveVel.Axis := ADR(ShuttleList[CurrentShuttleNumber].ShuttleReference);
-				ShuttleList[CurrentShuttleNumber].ElasticMoveVel.Velocity := gTrakAsm.Parameter.Velocity;
-				ShuttleList[CurrentShuttleNumber].ElasticMoveVel.Acceleration := gTrakAsm.Parameter.Acceleration;
-				ShuttleList[CurrentShuttleNumber].ElasticMoveVel.Deceleration := gTrakAsm.Parameter.Deceleration;
-				ShuttleList[CurrentShuttleNumber].ElasticMoveVel.Jerk := 0.0;
-				ShuttleList[CurrentShuttleNumber].ElasticMoveVel.Direction := mcDIR_POSITIVE;
-				ShuttleList[CurrentShuttleNumber].ElasticMoveVel.BufferMode := mcABORTING;
-				ShuttleList[CurrentShuttleNumber].ElasticMoveVel.Execute := TRUE;
+				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.Axis := ADR(ShuttleList[CurrentShuttleNumber].ShuttleReference);
+				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.Sector := ADR(MainLoop);
+				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.Velocity := gTrakAsm.Parameter.Velocity;
+				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.RouteVelocity := gTrakAsm.Parameter.Velocity;
+				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.Acceleration := gTrakAsm.Parameter.Acceleration;
+				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.Deceleration := gTrakAsm.Parameter.Deceleration;
+				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.Jerk := 0.0;
+//				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.Direction := mcDIR_POSITIVE;
+				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.BufferMode := mcABORTING;
+				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.Execute := TRUE;
 			END_FOR
 			
 			Step := WAIT_START_MOVEMENT;
 			
 		WAIT_START_MOVEMENT:
-			FOR CurrentShuttleNumber := 1 TO gTrakAsm.ShuttleCnt BY 1 DO
-				ShuttleList[CurrentShuttleNumber].ElasticMoveVel.Execute := FALSE;
-			END_FOR
+//			FOR CurrentShuttleNumber := 1 TO gTrakAsm.ShuttleCnt BY 1 DO
+//				ShuttleList[CurrentShuttleNumber].ElasticMoveVel.Execute := FALSE;
+//			END_FOR
 			
 			Step := MOVING;
 			
 		MOVING:
 			ActBufferBarrier;
 			ActWorkStation1;
+			ActWorkStation2;
+			ActWorkStation3;
+			ActWorkStation4;
 			
 			IF gTrakAsm.Command.StopMovement THEN
 				gTrakAsm.Command.StopMovement := FALSE;

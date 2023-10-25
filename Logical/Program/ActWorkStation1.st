@@ -1,7 +1,13 @@
 ACTION ActWorkStation1:
+	WorkStation1.ReadInfo.Enable := TRUE;
+	
 	CASE WorkStation1.Step OF
 		WAIT:
-			IF WorkStation1.GetShuttle.TotalCount <> 0 THEN
+			IF WorkStation1.GetShuttle.Enable  AND WorkStation1.GetShuttle.TotalCount = 0 THEN
+				WorkStation1.GetShuttle.Enable := FALSE;
+			ELSIF NOT WorkStation1.GetShuttle.Enable THEN
+				WorkStation1.GetShuttle.Enable := TRUE;
+			ELSIF WorkStation1.GetShuttle.TotalCount <> 0 THEN
 				WorkStation1.Timer.PT := T#2s;
 				WorkStation1.Timer.IN := TRUE;
 				WorkStation1.Step := PROCESS;
