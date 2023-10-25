@@ -19,5 +19,5 @@ END_VAR
 VAR
 	Step : StateMachineEnum := POWERED_OFF;
 	i : UINT;
-	CurrentShuttleNumber : USINT;
+	CurrentShuttleNumber : UINT;
 END_VAR

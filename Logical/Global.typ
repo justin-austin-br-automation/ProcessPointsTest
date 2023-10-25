@@ -7,10 +7,10 @@ TYPE
 		ShuttleCnt : UINT;
 	END_STRUCT;
 	TrakAssemblyCommandType : 	STRUCT 
-		PowerOn : BOOL;
+		Power : BOOL;
 		StartMovement : BOOL;
 		StopMovement : BOOL;
-		PowerOff : BOOL;
+		Reset : BOOL;
 	END_STRUCT;
 	TrakAssemblyParameterType : 	STRUCT 
 		Velocity : REAL := 2.0;

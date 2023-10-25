@@ -28,7 +28,7 @@ PROGRAM _CYCLIC
 		WAIT_POWER_OFF:
 			
 		POWERED_OFF:
-			IF gTrakAsm.Command.PowerOn AND gTrakAsm.Status.Disabled THEN
+			IF gTrakAsm.Command.Power AND gTrakAsm.Status.Disabled THEN
 				AsmPowerOn.Execute := TRUE;
 				Step := POWER_ON;
 			END_IF
@@ -79,14 +79,47 @@ PROGRAM _CYCLIC
 			END_IF
 			
 		READY:
+			IF NOT gTrakAsm.Command.Power THEN
+				AsmPowerOff.Execute := TRUE;
+				Step := POWER_OFF;
+			ELSIF gTrakAsm.Command.StartMovement AND gTrakAsm.ShuttleCnt > 0 THEN
+				gTrakAsm.Command.StartMovement := FALSE;
+				Step := START_MOVEMENT;
+			END_IF
 			
 		START_MOVEMENT:
+			FOR CurrentShuttleNumber := 1 TO gTrakAsm.ShuttleCnt BY 1 DO
+				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.Axis := ADR(ShuttleList[CurrentShuttleNumber].ShuttleReference);
+				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.Sector := ADR(MainLoop);
+				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.Velocity := gTrakAsm.Parameter.Velocity;
+				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.RouteVelocity := gTrakAsm.Parameter.Velocity;
+				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.Acceleration := gTrakAsm.Parameter.Acceleration;
+				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.Deceleration := gTrakAsm.Parameter.Deceleration;
+				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.Jerk := 0.0;
+				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.BufferMode := mcABORTING;
+				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.Execute := TRUE;
+			END_FOR
+			
+			Step := MOVING;
 			
 		WAIT_START_MOVEMENT:
 			
 		MOVING:
+			IF gTrakAsm.Command.StopMovement THEN
+				gTrakAsm.Command.StopMovement := FALSE;
+				Step := STOPPING;
+			END_IF
 			
 		STOPPING:
+			FOR CurrentShuttleNumber := 1 TO MAX_SHUTTLE_CNT BY 1 DO
+				ShuttleList[CurrentShuttleNumber].RoutedMoveVel.Execute := FALSE;
+			END_FOR
+			AsmStop.Execute := TRUE;
+			
+			IF AsmStop.Done THEN
+				AsmStop.Execute := FALSE;
+				Step := READY;
+			END_IF
 			
 		WAIT_STOPPING:
 			
