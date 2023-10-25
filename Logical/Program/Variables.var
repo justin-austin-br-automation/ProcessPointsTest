@@ -15,7 +15,9 @@ VAR CONSTANT
 	SHUTTLE_PARAMETERS : TrakAssemblyParameterType := (Velocity:=2.0,Acceleration:=20.0,Deceleration:=20.0);
 	MAX_SHUTTLE_CNT : USINT := 50;
 END_VAR
-(*Enumerations*)
+(*Variables*)
 VAR
 	Step : StateMachineEnum := POWERED_OFF;
+	i : UINT;
+	CurrentShuttleNumber : USINT;
 END_VAR

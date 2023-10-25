@@ -4,6 +4,7 @@ TYPE
 		Command : TrakAssemblyCommandType;
 		Parameter : TrakAssemblyParameterType;
 		Status : TrakAssemblyStatusType;
+		ShuttleCnt : UINT;
 	END_STRUCT;
 	TrakAssemblyCommandType : 	STRUCT 
 		PowerOn : BOOL;
