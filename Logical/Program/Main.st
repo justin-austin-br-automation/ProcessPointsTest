@@ -151,6 +151,7 @@ PROGRAM _CYCLIC
 			
 		MOVING:
 			ActBufferBarrier;
+			ActWorkZone;
 			ActWorkStation1;
 			ActWorkStation2;
 			ActWorkStation3;
