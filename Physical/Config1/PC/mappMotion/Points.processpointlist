@@ -27,28 +27,28 @@
       <Property ID="SectorRef" Value="ProcessPoints" />
       <Property ID="Position" Value="0.495" />
       <Property ID="TriggerEventBufferSize" Value="10" />
-      <Selector ID="BarrierFunctionality" Value="On" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
     </Selector>
     <Selector ID="ProcessPoint[4]">
       <Property ID="Name" Value="Station2" />
       <Property ID="SectorRef" Value="ProcessPoints" />
       <Property ID="Position" Value="0.99" />
       <Property ID="TriggerEventBufferSize" Value="10" />
-      <Selector ID="BarrierFunctionality" Value="On" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
     </Selector>
     <Selector ID="ProcessPoint[5]">
       <Property ID="Name" Value="Station3" />
       <Property ID="SectorRef" Value="ProcessPoints" />
       <Property ID="Position" Value="1.485" />
       <Property ID="TriggerEventBufferSize" Value="10" />
-      <Selector ID="BarrierFunctionality" Value="On" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
     </Selector>
     <Selector ID="ProcessPoint[6]">
       <Property ID="Name" Value="Station4" />
       <Property ID="SectorRef" Value="ProcessPoints" />
       <Property ID="Position" Value="1.98" />
       <Property ID="TriggerEventBufferSize" Value="10" />
-      <Selector ID="BarrierFunctionality" Value="On" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
     </Selector>
     <Selector ID="ProcessPoint[7]">
       <Property ID="Name" Value="MaintenancePoint" />

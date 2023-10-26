@@ -1,36 +1,49 @@
 ACTION ActWorkStation1:
-	WorkStation1.ReadInfo.Enable := TRUE;
 	
 	CASE WorkStation1.Step OF
 		WAIT:
-			IF WorkStation1.GetShuttle.Enable  AND WorkStation1.GetShuttle.TotalCount = 0 THEN
-				WorkStation1.GetShuttle.Enable := FALSE;
-			ELSIF NOT WorkStation1.GetShuttle.Enable THEN
-				WorkStation1.GetShuttle.Enable := TRUE;
-			ELSIF WorkStation1.GetShuttle.TotalCount <> 0 THEN
-				WorkStation1.Timer.PT := T#2s;
-				WorkStation1.Timer.IN := TRUE;
-				WorkStation1.Step := PROCESS;
+			WorkStation1.ElasticMoveAbs.Execute := FALSE;
+			
+			IF WorkStation1.TrgEnable.EventCount <> 0 THEN
+				WorkStation1.TrgGetInfo.Execute := TRUE;
+				WorkStation1.Step := DIRECTION_CHECK;
 			END_IF
 			
-		PROCESS:
-			WorkStation1.Command.Command := mcACPTRAK_BARRIER_ADD_TICKETS;
-			WorkStation1.Command.AdvancedParameters.TicketCount := 1;
-			
-			IF WorkStation1.Timer.Q THEN
-				WorkStation1.Timer.IN := FALSE;
-				WorkStation1.Command.Execute := TRUE;
-			ELSIF WorkStation1.Command.Done THEN
-				WorkStation1.Command.Execute := FALSE;
+		DIRECTION_CHECK:
+			IF WorkStation1.TrgGetInfo.TrgPointInfo.Event = mcACPTRAK_TP_PASSED_POSITIVE THEN
+				WorkStation1.Shuttle := WorkStation1.TrgGetInfo.TrgPointInfo.Axis;
+				WorkStation1.TrgGetInfo.Execute := FALSE;
+				WorkStation1.Step := PROCESS;
+			ELSE
+				WorkStation1.TrgGetInfo.Execute := FALSE;
 				WorkStation1.Step := WAIT;
 			END_IF
 			
+		PROCESS:
+			WorkStation1.Timer.PT := T#2s;
+			WorkStation1.Timer.IN := TRUE;
+			
+			IF WorkStation1.Timer.Q THEN
+				WorkStation1.Timer.IN := FALSE;
+				WorkStation1.Step := SEND_SHUTTLE;
+			END_IF
+			
+		SEND_SHUTTLE:
+			WorkStation1.ElasticMoveAbs.Axis := ADR(WorkStation1.Shuttle);
+			WorkStation1.ElasticMoveAbs.Position := 0.99;
+			WorkStation1.ElasticMoveAbs.Velocity := gTrakAsm.Parameter.Velocity;
+			WorkStation1.ElasticMoveAbs.Acceleration := gTrakAsm.Parameter.Acceleration;
+			WorkStation1.ElasticMoveAbs.Deceleration := gTrakAsm.Parameter.Deceleration;
+			WorkStation1.ElasticMoveAbs.Jerk := 0.0;
+			WorkStation1.ElasticMoveAbs.BufferMode := mcABORTING;
+			WorkStation1.ElasticMoveAbs.Execute := TRUE;
+			
+			WorkStation1.Step := WAIT;
+		
 	END_CASE
 	
-	WorkStation1.Command();
-	WorkStation1.ElasticMoveVel();
-	WorkStation1.GetShuttle();
-	WorkStation1.ReadInfo();
-	WorkStation1.RoutedMoveVel();
+	WorkStation1.ElasticMoveAbs();
+	WorkStation1.TrgEnable();
+	WorkStation1.TrgGetInfo();
 	WorkStation1.Timer();
 END_ACTION
