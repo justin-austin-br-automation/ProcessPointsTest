@@ -36,9 +36,13 @@ PROGRAM _INIT
 	WorkStation4.TrgEnable.ProcessPoint := ADR(Station4);
 	WorkStation4.TrgEnable.Enable := TRUE;
 	
-	MaintenanceStation.Command.ProcessPoint := ADR(MaintenancePoint);
+	MaintenanceStation.TrgGetInfo.ProcessPoint := ADR(MaintenancePoint);
+	MaintenanceStation.TrgEnable.ProcessPoint := ADR(MaintenancePoint);
+	MaintenanceStation.TrgEnable.Enable := TRUE;
 	
-	ThroughputStation.Command.ProcessPoint := ADR(Throughput);
+	ThroughputStation.TrgGetInfo.ProcessPoint := ADR(Throughput);
+	ThroughputStation.TrgEnable.ProcessPoint := ADR(Throughput);
+	ThroughputStation.TrgEnable.Enable := TRUE;
 	
 	(* Initializing parameters for shuttle movements *)
 	gTrakAsm.Parameter := SHUTTLE_PARAMETERS;
@@ -151,6 +155,8 @@ PROGRAM _CYCLIC
 			ActWorkStation2;
 			ActWorkStation3;
 			ActWorkStation4;
+			ActThroughputStation;
+			ActMaintenanceStation;
 			
 			IF gTrakAsm.Command.StopMovement THEN
 				gTrakAsm.Command.StopMovement := FALSE;

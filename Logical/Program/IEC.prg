@@ -11,7 +11,7 @@
     <File>ActWorkStation2.st</File>
     <File>ActWorkStation3.st</File>
     <File>ActWorkStation4.st</File>
-    <File>ActMaintenanceStation.st</File>
     <File>ActThroughputStation.st</File>
+    <File>ActMaintenanceStation.st</File>
   </Files>
 </Program>

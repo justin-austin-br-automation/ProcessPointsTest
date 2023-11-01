@@ -17,8 +17,10 @@ TYPE
 	ProcessPointStateEnum : 
 		(
 		WAIT,
+		DO_NOTHING,
 		DIRECTION_CHECK,
 		PROCESS,
-		SEND_SHUTTLE
+		SEND_SHUTTLE,
+		New_Member
 		);
 END_TYPE

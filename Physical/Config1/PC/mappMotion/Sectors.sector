@@ -84,10 +84,10 @@
     <Selector ID="Type" Value="Composed">
       <Group ID="StartSegment">
         <Property ID="SegmentRef" Value="::B06" />
+        <Property ID="PositionRelativeTo" Value="FromEnd" />
       </Group>
       <Group ID="EndSegment">
         <Property ID="SegmentRef" Value="::B06" />
-        <Property ID="PositionRelativeTo" Value="FromEnd" />
       </Group>
     </Selector>
     <Selector ID="Alarms" Value="None" />
