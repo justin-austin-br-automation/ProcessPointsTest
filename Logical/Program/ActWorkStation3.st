@@ -12,6 +12,13 @@ ACTION ActWorkStation3:
 		DIRECTION_CHECK:
 			IF WorkStation3.TrgGetInfo.TrgPointInfo.Event = mcACPTRAK_TP_PASSED_POSITIVE THEN
 				WorkStation3.Shuttle := WorkStation3.TrgGetInfo.TrgPointInfo.Axis;
+				
+				FOR i := 1 TO gMAX_SHUTTLE_CNT BY 1 DO
+					IF BufferBarrier.Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
+						gShuttleList[i].State := AT_STATION_3;
+					END_IF
+				END_FOR
+				
 				WorkStation3.TrgGetInfo.Execute := FALSE;
 				WorkStation3.Step := PROCESS;
 			ELSE
@@ -23,7 +30,7 @@ ACTION ActWorkStation3:
 			WorkStation3.Timer.PT := T#2s;
 			WorkStation3.Timer.IN := TRUE;
 			
-			IF WorkStation3.Timer.Q THEN
+			IF WorkStation3.Timer.Q AND WorkStation4.ReadyForShuttle THEN
 				WorkStation3.Timer.IN := FALSE;
 				WorkStation3.Step := SEND_SHUTTLE;
 			END_IF
@@ -38,6 +45,14 @@ ACTION ActWorkStation3:
 			WorkStation3.ElasticMoveAbs.BufferMode := mcABORTING;
 			WorkStation3.ElasticMoveAbs.Execute := TRUE;
 			
+			FOR i := 1 TO gMAX_SHUTTLE_CNT BY 1 DO
+				IF BufferBarrier.Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
+					gShuttleList[i].State := RTE_TO_STATION_4;
+				END_IF
+			END_FOR
+			
+			WorkStation3.ReadyForShuttle := TRUE;
+			WorkStation4.ReadyForShuttle := FALSE;
 			WorkStation3.Step := WAIT;
 		
 	END_CASE

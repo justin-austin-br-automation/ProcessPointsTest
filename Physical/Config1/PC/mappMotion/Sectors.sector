@@ -55,10 +55,10 @@
   <Element ID="Barrier" Type="sector">
     <Selector ID="Type" Value="Composed">
       <Group ID="StartSegment">
-        <Property ID="SegmentRef" Value="::A08" />
+        <Property ID="SegmentRef" Value="::A09" />
       </Group>
       <Group ID="EndSegment">
-        <Property ID="SegmentRef" Value="::A08" />
+        <Property ID="SegmentRef" Value="::A09" />
         <Property ID="PositionRelativeTo" Value="FromEnd" />
       </Group>
     </Selector>
@@ -71,10 +71,11 @@
       </Group>
       <Group ID="IntermediateSegments">
         <Property ID="SegmentRef[1]" Value="::A15" />
+        <Property ID="SegmentRef[2]" Value="::A16" />
       </Group>
       <Group ID="EndSegment">
-        <Property ID="SegmentRef" Value="::A16" />
-        <Property ID="PositionRelativeTo" Value="FromEnd" />
+        <Property ID="SegmentRef" Value="::A01" />
+        <Property ID="Position" Value="0.001" />
       </Group>
     </Selector>
     <Selector ID="Alarms" Value="None" />
@@ -86,6 +87,18 @@
       </Group>
       <Group ID="EndSegment">
         <Property ID="SegmentRef" Value="::B06" />
+        <Property ID="PositionRelativeTo" Value="FromEnd" />
+      </Group>
+    </Selector>
+    <Selector ID="Alarms" Value="None" />
+  </Element>
+  <Element ID="BarrierTrgPoint" Type="sector">
+    <Selector ID="Type" Value="Composed">
+      <Group ID="StartSegment">
+        <Property ID="SegmentRef" Value="::A13" />
+      </Group>
+      <Group ID="EndSegment">
+        <Property ID="SegmentRef" Value="::A13" />
         <Property ID="PositionRelativeTo" Value="FromEnd" />
       </Group>
     </Selector>

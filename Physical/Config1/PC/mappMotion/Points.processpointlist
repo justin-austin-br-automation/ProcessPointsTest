@@ -12,9 +12,9 @@
     <Selector ID="ProcessPoint[1]">
       <Property ID="Name" Value="BufferZone" />
       <Property ID="SectorRef" Value="Barrier" />
-      <Property ID="PositionRelativeTo" Value="FromEnd" />
+      <Property ID="Position" Value="0.3" />
       <Property ID="TriggerEventBufferSize" Value="10" />
-      <Selector ID="BarrierFunctionality" Value="On" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
     </Selector>
     <Selector ID="ProcessPoint[2]">
       <Property ID="Name" Value="Station0" />
@@ -54,6 +54,14 @@
       <Property ID="Name" Value="MaintenancePoint" />
       <Property ID="SectorRef" Value="MaintPoint" />
       <Property ID="Position" Value="0.33" />
+      <Property ID="TriggerEventBufferSize" Value="10" />
+      <Selector ID="BarrierFunctionality" Value="Off" />
+    </Selector>
+    <Selector ID="ProcessPoint[8]">
+      <Property ID="Name" Value="Station0TrgPoint" />
+      <Property ID="SectorRef" Value="BarrierTrgPoint" />
+      <Property ID="Position" Value="0.026" />
+      <Property ID="PositionRelativeTo" Value="FromEnd" />
       <Property ID="TriggerEventBufferSize" Value="10" />
       <Selector ID="BarrierFunctionality" Value="Off" />
     </Selector>

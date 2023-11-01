@@ -1,3 +1,4 @@
+(*Structures*)
 
 TYPE
 	TrakAssemblyControlType : 	STRUCT 
@@ -24,6 +25,16 @@ TYPE
 		Stopping : BOOL;
 		ErrorStop : BOOL;
 	END_STRUCT;
+	ShuttleControlType : 	STRUCT 
+		Axis : McAxisType;
+		RoutedMoveVel : MC_BR_RoutedMoveVel_AcpTrak;
+		State : ShuttleStateEnum := RTE_TO_BUFFER;
+	END_STRUCT;
+END_TYPE
+
+(*Enumerations*)
+
+TYPE
 	StateMachineEnum : 
 		(
 		POWER_OFF := 10,
@@ -40,5 +51,20 @@ TYPE
 		WAIT_STOPPING := 120,
 		ERROR := 500,
 		RESET := 510
+		);
+	ShuttleStateEnum : 
+		(
+		RTE_TO_BUFFER := 10,
+		AT_BUFFER := 15,
+		RTE_TO_STATION_1 := 20,
+		AT_STATION_1 := 25,
+		RTE_TO_STATION_2 := 30,
+		AT_STATION_2 := 35,
+		RTE_TO_STATION_3 := 40,
+		AT_STATION_3 := 45,
+		RTE_TO_STATION_4 := 50,
+		AT_STATION_4 := 55,
+		RTE_TO_MAINT := 60,
+		AT_MAINT := 65
 		);
 END_TYPE

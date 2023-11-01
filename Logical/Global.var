@@ -1,3 +1,12 @@
 VAR
 	gTrakAsm : TrakAssemblyControlType;
+	gRoutedMoveVel : MC_BR_RoutedMoveVel_AcpTrak;
+END_VAR
+(*Structures*)
+VAR
+	gShuttleList : ARRAY[1..gMAX_SHUTTLE_CNT] OF ShuttleControlType;
+END_VAR
+(*Constants*)
+VAR CONSTANT
+	gMAX_SHUTTLE_CNT : USINT := 50;
 END_VAR

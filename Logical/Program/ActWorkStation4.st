@@ -12,6 +12,13 @@ ACTION ActWorkStation4:
 		DIRECTION_CHECK:
 			IF WorkStation4.TrgGetInfo.TrgPointInfo.Event = mcACPTRAK_TP_PASSED_POSITIVE THEN
 				WorkStation4.Shuttle := WorkStation4.TrgGetInfo.TrgPointInfo.Axis;
+				
+				FOR i := 1 TO gMAX_SHUTTLE_CNT BY 1 DO
+					IF BufferBarrier.Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
+						gShuttleList[i].State := AT_STATION_4;
+					END_IF
+				END_FOR
+				
 				WorkStation4.TrgGetInfo.Execute := FALSE;
 				WorkStation4.Step := PROCESS;
 			ELSE
@@ -29,7 +36,7 @@ ACTION ActWorkStation4:
 			END_IF
 			
 		SEND_SHUTTLE:
-			WorkStation4.ElasticMoveAbs.Axis := ADR(WorkStation4.Shuttle);
+			WorkStation4.RoutedMoveVel.Axis := ADR(WorkStation4.Shuttle);
 			WorkStation4.RoutedMoveVel.Sector := ADR(MainLoop);
 			WorkStation4.RoutedMoveVel.Velocity := gTrakAsm.Parameter.Velocity;
 			WorkStation4.RoutedMoveVel.RouteVelocity := gTrakAsm.Parameter.Velocity;
@@ -39,6 +46,13 @@ ACTION ActWorkStation4:
 			WorkStation4.RoutedMoveVel.BufferMode := mcABORTING;
 			WorkStation4.RoutedMoveVel.Execute := TRUE;
 			
+			FOR i := 1 TO gMAX_SHUTTLE_CNT BY 1 DO
+				IF BufferBarrier.Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
+					gShuttleList[i].State := RTE_TO_BUFFER;
+				END_IF
+			END_FOR
+			
+			WorkStation4.ReadyForShuttle := TRUE;
 			WorkStation4.Step := WAIT;
 		
 	END_CASE
