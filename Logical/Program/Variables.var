@@ -20,7 +20,7 @@ VAR CONSTANT
 	SHUTTLE_PARAMETERS : TrakAssemblyParameterType := (Velocity:=2.0,Acceleration:=20.0,Deceleration:=20.0);
 END_VAR
 VAR
-	MAX_SHUTTLES_TO_STATION_1 : UINT := 5;
+	MAX_SHUTTLES_TO_STATION_1 : UINT := 3;
 END_VAR
 (*Variables*)
 VAR

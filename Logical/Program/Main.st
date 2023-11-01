@@ -124,23 +124,23 @@ PROGRAM _CYCLIC
 			
 		START_MOVEMENT:
 			FOR CurrentShuttleNumber := 1 TO gTrakAsm.ShuttleCnt BY 1 DO
-				gRoutedMoveVel.Axis := ADR(gShuttleList[CurrentShuttleNumber].Axis);
-				gRoutedMoveVel.Sector := ADR(MainLoop);
-				gRoutedMoveVel.Velocity := gTrakAsm.Parameter.Velocity;
-				gRoutedMoveVel.RouteVelocity := gTrakAsm.Parameter.Velocity;
-				gRoutedMoveVel.Acceleration := gTrakAsm.Parameter.Acceleration;
-				gRoutedMoveVel.Deceleration := gTrakAsm.Parameter.Deceleration;
-				gRoutedMoveVel.Jerk := 0.0;
-				gRoutedMoveVel.BufferMode := mcABORTING;
-				gRoutedMoveVel.Execute := TRUE;
+				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Axis := ADR(gShuttleList[CurrentShuttleNumber].Axis);
+				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Sector := ADR(Barrier);
+				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Position := 0.2;
+				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Velocity := gTrakAsm.Parameter.Velocity;
+				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Acceleration := gTrakAsm.Parameter.Acceleration;
+				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Deceleration := gTrakAsm.Parameter.Deceleration;
+				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Jerk := 0.0;
+				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.BufferMode := mcABORTING;
+				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Execute := TRUE;
 			END_FOR
 			
 			Step := WAIT_START_MOVEMENT;
 			
 		WAIT_START_MOVEMENT:
-//			FOR CurrentShuttleNumber := 1 TO gTrakAsm.ShuttleCnt BY 1 DO
-//				gShuttleList[CurrentShuttleNumber].ElasticMoveVel.Execute := FALSE;
-//			END_FOR
+			FOR CurrentShuttleNumber := 1 TO gTrakAsm.ShuttleCnt BY 1 DO
+				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Execute := FALSE;
+			END_FOR
 			
 			Step := MOVING;
 			
@@ -159,7 +159,7 @@ PROGRAM _CYCLIC
 			
 		STOPPING:
 			FOR CurrentShuttleNumber := 1 TO gMAX_SHUTTLE_CNT BY 1 DO
-				gShuttleList[CurrentShuttleNumber].RoutedMoveVel.Execute := FALSE;
+				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Execute := FALSE;
 			END_FOR
 			AsmStop.Execute := TRUE;
 			
@@ -191,7 +191,7 @@ PROGRAM _CYCLIC
 	AsmReadStatus();
 	FOR i := 1 TO gMAX_SHUTTLE_CNT BY 1 DO
 		IF gShuttleList[i].Axis.controlif <> 0 THEN
-			gShuttleList[i].RoutedMoveVel();
+			gShuttleList[i].RoutedMoveAbs();
 		END_IF
 	END_FOR
 END_PROGRAM

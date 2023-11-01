@@ -2,7 +2,7 @@ ACTION ActWorkStation4:
 	
 	CASE WorkStation4.Step OF
 		WAIT:
-			WorkStation4.RoutedMoveVel.Execute := FALSE;
+			WorkStation4.RoutedMoveAbs.Execute := FALSE;
 			
 			IF WorkStation4.TrgEnable.EventCount <> 0 THEN
 				WorkStation4.TrgGetInfo.Execute := TRUE;
@@ -14,7 +14,7 @@ ACTION ActWorkStation4:
 				WorkStation4.Shuttle := WorkStation4.TrgGetInfo.TrgPointInfo.Axis;
 				
 				FOR i := 1 TO gMAX_SHUTTLE_CNT BY 1 DO
-					IF BufferBarrier.Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
+					IF WorkStation4.Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
 						gShuttleList[i].State := AT_STATION_4;
 					END_IF
 				END_FOR
@@ -36,18 +36,18 @@ ACTION ActWorkStation4:
 			END_IF
 			
 		SEND_SHUTTLE:
-			WorkStation4.RoutedMoveVel.Axis := ADR(WorkStation4.Shuttle);
-			WorkStation4.RoutedMoveVel.Sector := ADR(MainLoop);
-			WorkStation4.RoutedMoveVel.Velocity := gTrakAsm.Parameter.Velocity;
-			WorkStation4.RoutedMoveVel.RouteVelocity := gTrakAsm.Parameter.Velocity;
-			WorkStation4.RoutedMoveVel.Acceleration := gTrakAsm.Parameter.Acceleration;
-			WorkStation4.RoutedMoveVel.Deceleration := gTrakAsm.Parameter.Deceleration;
-			WorkStation4.RoutedMoveVel.Jerk := 0.0;
-			WorkStation4.RoutedMoveVel.BufferMode := mcABORTING;
-			WorkStation4.RoutedMoveVel.Execute := TRUE;
+			WorkStation4.RoutedMoveAbs.Axis := ADR(WorkStation4.Shuttle);
+			WorkStation4.RoutedMoveAbs.Sector := ADR(Barrier);
+			WorkStation4.RoutedMoveAbs.Position := 0.2;
+			WorkStation4.RoutedMoveAbs.Velocity := gTrakAsm.Parameter.Velocity;
+			WorkStation4.RoutedMoveAbs.Acceleration := gTrakAsm.Parameter.Acceleration;
+			WorkStation4.RoutedMoveAbs.Deceleration := gTrakAsm.Parameter.Deceleration;
+			WorkStation4.RoutedMoveAbs.Jerk := 0.0;
+			WorkStation4.RoutedMoveAbs.BufferMode := mcABORTING;
+			WorkStation4.RoutedMoveAbs.Execute := TRUE;
 			
 			FOR i := 1 TO gMAX_SHUTTLE_CNT BY 1 DO
-				IF BufferBarrier.Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
+				IF WorkStation4.Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
 					gShuttleList[i].State := RTE_TO_BUFFER;
 				END_IF
 			END_FOR
@@ -59,6 +59,6 @@ ACTION ActWorkStation4:
 	
 	WorkStation4.TrgEnable();
 	WorkStation4.TrgGetInfo();
-	WorkStation4.RoutedMoveVel();
+	WorkStation4.RoutedMoveAbs();
 	WorkStation4.Timer();
 END_ACTION

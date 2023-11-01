@@ -27,7 +27,7 @@ TYPE
 	END_STRUCT;
 	ShuttleControlType : 	STRUCT 
 		Axis : McAxisType;
-		RoutedMoveVel : MC_BR_RoutedMoveVel_AcpTrak;
+		RoutedMoveAbs : MC_BR_RoutedMoveAbs_AcpTrak;
 		State : ShuttleStateEnum := RTE_TO_BUFFER;
 	END_STRUCT;
 END_TYPE

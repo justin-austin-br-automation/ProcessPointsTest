@@ -14,7 +14,7 @@ ACTION ActWorkStation3:
 				WorkStation3.Shuttle := WorkStation3.TrgGetInfo.TrgPointInfo.Axis;
 				
 				FOR i := 1 TO gMAX_SHUTTLE_CNT BY 1 DO
-					IF BufferBarrier.Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
+					IF WorkStation3.Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
 						gShuttleList[i].State := AT_STATION_3;
 					END_IF
 				END_FOR
@@ -46,7 +46,7 @@ ACTION ActWorkStation3:
 			WorkStation3.ElasticMoveAbs.Execute := TRUE;
 			
 			FOR i := 1 TO gMAX_SHUTTLE_CNT BY 1 DO
-				IF BufferBarrier.Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
+				IF WorkStation3.Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
 					gShuttleList[i].State := RTE_TO_STATION_4;
 				END_IF
 			END_FOR

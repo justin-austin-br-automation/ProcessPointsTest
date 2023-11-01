@@ -12,7 +12,7 @@
     <Selector ID="ProcessPoint[1]">
       <Property ID="Name" Value="BufferZone" />
       <Property ID="SectorRef" Value="Barrier" />
-      <Property ID="Position" Value="0.3" />
+      <Property ID="Position" Value="0.2" />
       <Property ID="TriggerEventBufferSize" Value="10" />
       <Selector ID="BarrierFunctionality" Value="Off" />
     </Selector>
