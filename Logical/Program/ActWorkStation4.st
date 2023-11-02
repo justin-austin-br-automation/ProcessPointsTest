@@ -4,7 +4,7 @@ ACTION ActWorkStation4:
 		WAIT:
 			WorkStation4.RoutedMoveAbs.Execute := FALSE;
 			
-			IF WorkStation4.TrgEnable.EventCount <> 0 THEN
+			IF WorkStation4.TrgEnable.EventCount > 0 THEN
 				WorkStation4.TrgGetInfo.Execute := TRUE;
 				WorkStation4.Step := DIRECTION_CHECK;
 			END_IF
@@ -13,7 +13,7 @@ ACTION ActWorkStation4:
 			IF WorkStation4.TrgGetInfo.TrgPointInfo.Event = mcACPTRAK_TP_PASSED_POSITIVE THEN
 				WorkStation4.Shuttle := WorkStation4.TrgGetInfo.TrgPointInfo.Axis;
 				
-				FOR i := 1 TO gMAX_SHUTTLE_CNT BY 1 DO
+				FOR i := 1 TO gMAX_SHUTTLE_CNT DO
 					IF WorkStation4.Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
 						gShuttleList[i].State := AT_STATION_4;
 					END_IF
@@ -46,7 +46,7 @@ ACTION ActWorkStation4:
 			WorkStation4.RoutedMoveAbs.BufferMode := mcABORTING;
 			WorkStation4.RoutedMoveAbs.Execute := TRUE;
 			
-			FOR i := 1 TO gMAX_SHUTTLE_CNT BY 1 DO
+			FOR i := 1 TO gMAX_SHUTTLE_CNT DO
 				IF WorkStation4.Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
 					gShuttleList[i].State := RTE_TO_BUFFER;
 				END_IF

@@ -8,40 +8,40 @@ PROGRAM _INIT
 	AsmReadStatus.Assembly := ADR(gAssembly_1);
 	AsmReadStatus.Enable := TRUE;
 	
-	BufferBarrier.TrgGetInfo.ProcessPoint := ADR(BufferZone);
-	BufferBarrier.TrgEnable.ProcessPoint := ADR(BufferZone);
+	BufferBarrier.TrgGetInfo.ProcessPoint := ADR(SectorBuffer);
+	BufferBarrier.TrgEnable.ProcessPoint := ADR(SectorBuffer);
 	BufferBarrier.TrgEnable.Enable := TRUE;
 	
-	WorkZone.TrgGetInfo.ProcessPoint := ADR(Station0TrgPoint);
-	WorkZone.TrgEnable.ProcessPoint := ADR(Station0TrgPoint);
+	WorkZone.TrgGetInfo.ProcessPoint := ADR(PPStation0TrgPoint);
+	WorkZone.TrgEnable.ProcessPoint := ADR(PPStation0TrgPoint);
 	WorkZone.TrgEnable.Enable := TRUE;
-	WorkZone.Command.ProcessPoint := ADR(Station0);
+	WorkZone.Command.ProcessPoint := ADR(PPStation0);
 	WorkZone.Command.Command := mcACPTRAK_BARRIER_CLOSE;
 	WorkZone.Command.Execute := TRUE;
 	WorkZone.Command();
 	
-	WorkStation1.TrgGetInfo.ProcessPoint := ADR(Station1);
-	WorkStation1.TrgEnable.ProcessPoint := ADR(Station1);
+	WorkStation1.TrgGetInfo.ProcessPoint := ADR(PPStation1);
+	WorkStation1.TrgEnable.ProcessPoint := ADR(PPStation1);
 	WorkStation1.TrgEnable.Enable := TRUE;
 	
-	WorkStation2.TrgGetInfo.ProcessPoint := ADR(Station2);
-	WorkStation2.TrgEnable.ProcessPoint := ADR(Station2);
+	WorkStation2.TrgGetInfo.ProcessPoint := ADR(PPStation2);
+	WorkStation2.TrgEnable.ProcessPoint := ADR(PPStation2);
 	WorkStation2.TrgEnable.Enable := TRUE;
 	
-	WorkStation3.TrgGetInfo.ProcessPoint := ADR(Station3);
-	WorkStation3.TrgEnable.ProcessPoint := ADR(Station3);
+	WorkStation3.TrgGetInfo.ProcessPoint := ADR(PPStation3);
+	WorkStation3.TrgEnable.ProcessPoint := ADR(PPStation3);
 	WorkStation3.TrgEnable.Enable := TRUE;
 	
-	WorkStation4.TrgGetInfo.ProcessPoint := ADR(Station4);
-	WorkStation4.TrgEnable.ProcessPoint := ADR(Station4);
+	WorkStation4.TrgGetInfo.ProcessPoint := ADR(PPStation4);
+	WorkStation4.TrgEnable.ProcessPoint := ADR(PPStation4);
 	WorkStation4.TrgEnable.Enable := TRUE;
 	
-	MaintenanceStation.TrgGetInfo.ProcessPoint := ADR(MaintenancePoint);
-	MaintenanceStation.TrgEnable.ProcessPoint := ADR(MaintenancePoint);
+	MaintenanceStation.TrgGetInfo.ProcessPoint := ADR(PPMaintenancePoint);
+	MaintenanceStation.TrgEnable.ProcessPoint := ADR(PPMaintenancePoint);
 	MaintenanceStation.TrgEnable.Enable := TRUE;
 	
-	ThroughputStation.TrgGetInfo.ProcessPoint := ADR(Throughput);
-	ThroughputStation.TrgEnable.ProcessPoint := ADR(Throughput);
+	ThroughputStation.TrgGetInfo.ProcessPoint := ADR(PPThroughput);
+	ThroughputStation.TrgEnable.ProcessPoint := ADR(PPThroughput);
 	ThroughputStation.TrgEnable.Enable := TRUE;
 	
 	(* Initializing parameters for shuttle movements *)
@@ -75,7 +75,7 @@ PROGRAM _CYCLIC
 		POWER_ON:
 			IF AsmPowerOn.Done AND gTrakAsm.Status.Ready THEN
 				AsmPowerOn.Execute := FALSE;
-				FOR i := 1 TO gMAX_SHUTTLE_CNT BY 1 DO
+				FOR i := 1 TO gMAX_SHUTTLE_CNT DO
 					brsmemset(ADR(gShuttleList[i].Axis), 0, SIZEOF(gShuttleList[i].Axis));
 				END_FOR
 				CurrentShuttleNumber := 1;
@@ -127,9 +127,9 @@ PROGRAM _CYCLIC
 			END_IF
 			
 		START_MOVEMENT:
-			FOR CurrentShuttleNumber := 1 TO gTrakAsm.ShuttleCnt BY 1 DO
+			FOR CurrentShuttleNumber := 1 TO gTrakAsm.ShuttleCnt DO
 				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Axis := ADR(gShuttleList[CurrentShuttleNumber].Axis);
-				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Sector := ADR(Barrier);
+				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Sector := ADR(SectorBuffer);
 				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Position := 0.2;
 				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Velocity := gTrakAsm.Parameter.Velocity;
 				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Acceleration := gTrakAsm.Parameter.Acceleration;
@@ -142,7 +142,7 @@ PROGRAM _CYCLIC
 			Step := WAIT_START_MOVEMENT;
 			
 		WAIT_START_MOVEMENT:
-			FOR CurrentShuttleNumber := 1 TO gTrakAsm.ShuttleCnt BY 1 DO
+			FOR CurrentShuttleNumber := 1 TO gTrakAsm.ShuttleCnt DO
 				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Execute := FALSE;
 			END_FOR
 			
@@ -167,7 +167,7 @@ PROGRAM _CYCLIC
 			END_IF
 			
 		STOPPING:
-			FOR CurrentShuttleNumber := 1 TO gMAX_SHUTTLE_CNT BY 1 DO
+			FOR CurrentShuttleNumber := 1 TO gMAX_SHUTTLE_CNT DO
 				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Execute := FALSE;
 			END_FOR
 			AsmStop.Execute := TRUE;
@@ -198,7 +198,7 @@ PROGRAM _CYCLIC
 	AsmGetShuttle();
 	AsmStop();
 	AsmReadStatus();
-	FOR i := 1 TO gMAX_SHUTTLE_CNT BY 1 DO
+	FOR i := 1 TO gMAX_SHUTTLE_CNT DO
 		IF gShuttleList[i].Axis.controlif <> 0 THEN
 			gShuttleList[i].RoutedMoveAbs();
 		END_IF

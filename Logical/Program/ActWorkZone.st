@@ -5,7 +5,7 @@ ACTION ActWorkZone:
 			WorkZone.Command.Command := mcACPTRAK_BARRIER_CLOSE;
 			WorkZone.Command.Execute := TRUE;
 			
-			IF WorkZone.TrgEnable.EventCount <> 0 AND WorkStation1.ReadyForShuttle THEN
+			IF WorkZone.TrgEnable.EventCount > 0 AND WorkStation1.ReadyForShuttle THEN
 				WorkZone.Command.Execute := FALSE;
 				WorkZone.TrgGetInfo.Execute := TRUE;
 				WorkZone.Step := DIRECTION_CHECK;

@@ -4,7 +4,7 @@ ACTION ActMaintenanceStation:
 		WAIT:
 			MaintenanceStation.RoutedMoveAbs.Execute := FALSE;
 			
-			IF MaintenanceStation.TrgEnable.EventCount <> 0 THEN
+			IF MaintenanceStation.TrgEnable.EventCount > 0 THEN
 				MaintenanceStation.TrgGetInfo.Execute := TRUE;
 				MaintenanceStation.Step := DIRECTION_CHECK;
 			END_IF
@@ -13,7 +13,7 @@ ACTION ActMaintenanceStation:
 			IF MaintenanceStation.TrgGetInfo.TrgPointInfo.Event = mcACPTRAK_TP_PASSED_POSITIVE THEN
 				MaintenanceStation.Shuttle := MaintenanceStation.TrgGetInfo.TrgPointInfo.Axis;
 				
-				FOR i := 1 TO gMAX_SHUTTLE_CNT BY 1 DO
+				FOR i := 1 TO gMAX_SHUTTLE_CNT DO
 					IF MaintenanceStation.Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
 						gShuttleList[i].State := AT_MAINT;
 					END_IF
@@ -46,7 +46,7 @@ ACTION ActMaintenanceStation:
 			MaintenanceStation.RoutedMoveAbs.BufferMode := mcABORTING;
 			MaintenanceStation.RoutedMoveAbs.Execute := TRUE;
 			
-			FOR i := 1 TO gMAX_SHUTTLE_CNT BY 1 DO
+			FOR i := 1 TO gMAX_SHUTTLE_CNT DO
 				IF MaintenanceStation.Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
 					gShuttleList[i].State := RTE_TO_BUFFER;
 				END_IF

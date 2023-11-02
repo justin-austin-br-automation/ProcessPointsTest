@@ -4,7 +4,7 @@ ACTION ActWorkStation1:
 		WAIT:
 			WorkStation1.ElasticMoveAbs.Execute := FALSE;
 			
-			IF WorkStation1.TrgEnable.EventCount <> 0 THEN
+			IF WorkStation1.TrgEnable.EventCount > 0 THEN
 				WorkStation1.ReadyForShuttle := FALSE;
 				WorkStation1.TrgGetInfo.Execute := TRUE;
 				WorkStation1.Step := DIRECTION_CHECK;
@@ -14,7 +14,7 @@ ACTION ActWorkStation1:
 			IF WorkStation1.TrgGetInfo.TrgPointInfo.Event = mcACPTRAK_TP_PASSED_POSITIVE THEN
 				WorkStation1.Shuttle := WorkStation1.TrgGetInfo.TrgPointInfo.Axis;
 				
-				FOR i := 1 TO gMAX_SHUTTLE_CNT BY 1 DO
+				FOR i := 1 TO gMAX_SHUTTLE_CNT DO
 					IF WorkStation1.Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
 						gShuttleList[i].State := AT_STATION_1;
 					END_IF
@@ -46,7 +46,7 @@ ACTION ActWorkStation1:
 			WorkStation1.ElasticMoveAbs.BufferMode := mcABORTING;
 			WorkStation1.ElasticMoveAbs.Execute := TRUE;
 			
-			FOR i := 1 TO gMAX_SHUTTLE_CNT BY 1 DO
+			FOR i := 1 TO gMAX_SHUTTLE_CNT DO
 				IF WorkStation1.Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
 					gShuttleList[i].State := RTE_TO_STATION_2;
 				END_IF

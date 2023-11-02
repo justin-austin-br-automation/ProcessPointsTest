@@ -6,6 +6,10 @@
       <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
     </Connection>
     <Connection Connector="SL" TargetModule="PC" TargetConnector="SL1" />
+    <Connector Name="IF1">
+      <Parameter ID="CycleTime" Value="800" />
+    </Connector>
+    <Parameter ID="Supervision" Value="off" />
   </Module>
   <Module Name="8F1I01.AA66.xxxx-1" Type="8F1I01.AA66.xxxx-1" Version="1.0.0.2">
     <Connection Connector="PLK1" TargetModule="8F1I01.BA2B.xxxx-1" TargetConnector="PLK2" NodeNumber="6">
@@ -435,8 +439,8 @@
   </Module>
   <Module Name="PC" Type="PC_any" Version="1.1.1.0" OrderNumber="PC">
     <Parameter ID="ConfigurationID" Value="ProcessPointsTest_Config1" />
-    <Parameter ID="SystemTick" Value="1000" />
-    <Parameter ID="Cyclic1Duration" Value="1000" />
+    <Parameter ID="SystemTick" Value="800" />
+    <Parameter ID="Cyclic1Duration" Value="1600" />
     <Parameter ID="Cyclic1Tolerance" Value="0" />
     <Group ID="FileDevice1" />
     <Parameter ID="FileDeviceName1" Value="USER" />

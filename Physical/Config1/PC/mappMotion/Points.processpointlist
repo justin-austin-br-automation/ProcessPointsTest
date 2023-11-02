@@ -3,62 +3,62 @@
 <Configuration>
   <Element ID="ProcessPointList_1" Type="processpointlist">
     <Selector ID="ProcessPoint[0]">
-      <Property ID="Name" Value="Throughput" />
-      <Property ID="SectorRef" Value="MainLoop" />
+      <Property ID="Name" Value="PPThroughput" />
+      <Property ID="SectorRef" Value="SectorMainLoop" />
       <Property ID="Position" Value="0.81" />
       <Property ID="TriggerEventBufferSize" Value="10" />
       <Selector ID="BarrierFunctionality" Value="Off" />
     </Selector>
     <Selector ID="ProcessPoint[1]">
-      <Property ID="Name" Value="BufferZone" />
-      <Property ID="SectorRef" Value="Barrier" />
+      <Property ID="Name" Value="PPBuffer" />
+      <Property ID="SectorRef" Value="SectorBuffer" />
       <Property ID="Position" Value="0.2" />
       <Property ID="TriggerEventBufferSize" Value="10" />
       <Selector ID="BarrierFunctionality" Value="Off" />
     </Selector>
     <Selector ID="ProcessPoint[2]">
-      <Property ID="Name" Value="Station0" />
-      <Property ID="SectorRef" Value="ProcessPoints" />
+      <Property ID="Name" Value="PPStation0" />
+      <Property ID="SectorRef" Value="SectorWorkZone" />
       <Property ID="TriggerEventBufferSize" Value="10" />
       <Selector ID="BarrierFunctionality" Value="On" />
     </Selector>
     <Selector ID="ProcessPoint[3]">
-      <Property ID="Name" Value="Station1" />
-      <Property ID="SectorRef" Value="ProcessPoints" />
+      <Property ID="Name" Value="PPStation1" />
+      <Property ID="SectorRef" Value="SectorWorkZone" />
       <Property ID="Position" Value="0.495" />
       <Property ID="TriggerEventBufferSize" Value="10" />
       <Selector ID="BarrierFunctionality" Value="Off" />
     </Selector>
     <Selector ID="ProcessPoint[4]">
-      <Property ID="Name" Value="Station2" />
-      <Property ID="SectorRef" Value="ProcessPoints" />
+      <Property ID="Name" Value="PPStation2" />
+      <Property ID="SectorRef" Value="SectorWorkZone" />
       <Property ID="Position" Value="0.99" />
       <Property ID="TriggerEventBufferSize" Value="10" />
       <Selector ID="BarrierFunctionality" Value="Off" />
     </Selector>
     <Selector ID="ProcessPoint[5]">
-      <Property ID="Name" Value="Station3" />
-      <Property ID="SectorRef" Value="ProcessPoints" />
+      <Property ID="Name" Value="PPStation3" />
+      <Property ID="SectorRef" Value="SectorWorkZone" />
       <Property ID="Position" Value="1.485" />
       <Property ID="TriggerEventBufferSize" Value="10" />
       <Selector ID="BarrierFunctionality" Value="Off" />
     </Selector>
     <Selector ID="ProcessPoint[6]">
-      <Property ID="Name" Value="Station4" />
-      <Property ID="SectorRef" Value="ProcessPoints" />
+      <Property ID="Name" Value="PPStation4" />
+      <Property ID="SectorRef" Value="SectorWorkZone" />
       <Property ID="Position" Value="1.98" />
       <Property ID="TriggerEventBufferSize" Value="10" />
       <Selector ID="BarrierFunctionality" Value="Off" />
     </Selector>
     <Selector ID="ProcessPoint[7]">
-      <Property ID="Name" Value="MaintenancePoint" />
-      <Property ID="SectorRef" Value="MaintPoint" />
+      <Property ID="Name" Value="PPMaintenancePoint" />
+      <Property ID="SectorRef" Value="SectorMaintenancePoint" />
       <Property ID="Position" Value="0.33" />
       <Property ID="TriggerEventBufferSize" Value="10" />
       <Selector ID="BarrierFunctionality" Value="Off" />
     </Selector>
     <Selector ID="ProcessPoint[8]">
-      <Property ID="Name" Value="Station0TrgPoint" />
+      <Property ID="Name" Value="PPStation0TrgPoint" />
       <Property ID="SectorRef" Value="BarrierTrgPoint" />
       <Property ID="Position" Value="0.026" />
       <Property ID="PositionRelativeTo" Value="FromEnd" />

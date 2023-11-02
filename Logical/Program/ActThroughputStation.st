@@ -14,11 +14,11 @@ ACTION ActThroughputStation:
 			ThroughputStation.Timer.PT := MAINTENANCE_TIMER_LENGTH;
 			ThroughputStation.Timer.IN := TRUE;
 			
-			IF ThroughputStation.Timer.Q AND ThroughputStation.TrgEnable.EventCount <> 0 THEN
+			IF ThroughputStation.Timer.Q AND ThroughputStation.TrgEnable.EventCount > 0 THEN
 				ThroughputStation.Timer.IN := FALSE;
 				ThroughputStation.TrgGetInfo.Execute := TRUE;
 				ThroughputStation.Step := DIRECTION_CHECK;
-			ELSIF NOT ThroughputStation.Timer.Q AND ThroughputStation.TrgEnable.EventCount <> 0 THEN
+			ELSIF NOT ThroughputStation.Timer.Q AND ThroughputStation.TrgEnable.EventCount > 0 THEN
 				ThroughputStation.TrgGetInfo.Execute := TRUE;
 				ThroughputStation.Step := DO_NOTHING;
 			END_IF
@@ -47,7 +47,7 @@ ACTION ActThroughputStation:
 			ThroughputStation.RoutedMoveAbs.BufferMode := mcABORTING;
 			ThroughputStation.RoutedMoveAbs.Execute := TRUE;
 			
-			FOR i := 1 TO gMAX_SHUTTLE_CNT BY 1 DO
+			FOR i := 1 TO gMAX_SHUTTLE_CNT DO
 				IF ThroughputStation.Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
 					gShuttleList[i].State := RTE_TO_MAINT;
 				END_IF

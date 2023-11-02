@@ -7,7 +7,7 @@
         <Property ID="SectorRef" Value="MainLoop" />
         <Property ID="Orientation" Value="Positive" />
         <Selector ID="ShuttleDefinition" Value="ShuttleSetDefinition">
-          <Property ID="StartPosition" Value="0.0" />
+          <Property ID="StartPosition" Value="0.1" />
           <Property ID="NumberOfShuttles" Value="15" />
           <Property ID="DistnaceBetweenShuttles" Value="0.15" />
         </Selector>

@@ -23,4 +23,21 @@ TYPE
 		SEND_SHUTTLE,
 		New_Member
 		);
+	StateMachineEnum : 
+		(
+		POWER_OFF := 10,
+		WAIT_POWER_OFF := 20,
+		POWERED_OFF := 30,
+		POWER_ON := 40,
+		WAIT_POWER_ON := 50,
+		GET_SHUTTLE := 60,
+		READY := 70,
+		START_MOVEMENT := 80,
+		WAIT_START_MOVEMENT := 90,
+		MOVING := 100,
+		STOPPING := 110,
+		WAIT_STOPPING := 120,
+		ERROR := 500,
+		RESET := 510
+		);
 END_TYPE

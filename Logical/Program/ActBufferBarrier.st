@@ -5,13 +5,13 @@ ACTION ActBufferBarrier:
 			BufferBarrier.RoutedMoveAbs.Execute := FALSE;
 			
 			ShuttlesToStation1 := 0;
-			FOR i := 1 TO gMAX_SHUTTLE_CNT BY 1 DO
+			FOR i := 1 TO gMAX_SHUTTLE_CNT DO
 				IF gShuttleList[i].State = RTE_TO_STATION_1 THEN
 					ShuttlesToStation1 := ShuttlesToStation1 + 1;
 				END_IF
 			END_FOR
 			
-			IF BufferBarrier.TrgEnable.EventCount <> 0 AND ShuttlesToStation1 < MAX_SHUTTLES_TO_STATION_1 THEN
+			IF BufferBarrier.TrgEnable.EventCount > 0 AND ShuttlesToStation1 < MAX_SHUTTLES_TO_STATION_1 THEN
 				BufferBarrier.TrgGetInfo.Execute := TRUE;
 				BufferBarrier.Step := DIRECTION_CHECK;
 			END_IF
@@ -20,7 +20,7 @@ ACTION ActBufferBarrier:
 			IF BufferBarrier.TrgGetInfo.TrgPointInfo.Event = mcACPTRAK_TP_PASSED_POSITIVE THEN
 				BufferBarrier.Shuttle := BufferBarrier.TrgGetInfo.TrgPointInfo.Axis;
 				
-				FOR i := 1 TO gMAX_SHUTTLE_CNT BY 1 DO
+				FOR i := 1 TO gMAX_SHUTTLE_CNT DO
 					IF BufferBarrier.Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
 						gShuttleList[i].State := AT_BUFFER;
 					END_IF
@@ -44,7 +44,7 @@ ACTION ActBufferBarrier:
 			BufferBarrier.RoutedMoveAbs.BufferMode := mcABORTING;
 			BufferBarrier.RoutedMoveAbs.Execute := TRUE;
 			
-			FOR i := 1 TO gMAX_SHUTTLE_CNT BY 1 DO
+			FOR i := 1 TO gMAX_SHUTTLE_CNT DO
 				IF BufferBarrier.Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
 					gShuttleList[i].State := RTE_TO_STATION_1;
 				END_IF
