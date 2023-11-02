@@ -1,7 +1,16 @@
 ACTION ActThroughputStation:
+	IF ThroughputTimer.Q THEN
+		ThroughputTimer.IN := FALSE;
+		CurrentThroughput := ThroughputCounter;
+		ThroughputCounter := 0;
+	ELSIF NOT ThroughputTimer.IN THEN
+		ThroughputTimer.IN := TRUE;
+	END_IF
+		
 	
 	CASE ThroughputStation.Step OF
 		WAIT:
+			ThroughputStation.RoutedMoveAbs.Execute := FALSE;
 			ThroughputStation.Timer.PT := MAINTENANCE_TIMER_LENGTH;
 			ThroughputStation.Timer.IN := TRUE;
 			
@@ -17,18 +26,15 @@ ACTION ActThroughputStation:
 		DO_NOTHING:
 			IF ThroughputStation.TrgGetInfo.Done THEN
 				ThroughputStation.TrgGetInfo.Execute := FALSE;
+				ThroughputCounter := ThroughputCounter + 1;
 				ThroughputStation.Step := WAIT;
 			END_IF
 			
 		DIRECTION_CHECK:
-			IF ThroughputStation.TrgGetInfo.TrgPointInfo.Event = mcACPTRAK_TP_PASSED_POSITIVE THEN
-				ThroughputStation.Shuttle := ThroughputStation.TrgGetInfo.TrgPointInfo.Axis;
-				ThroughputStation.TrgGetInfo.Execute := FALSE;
-				ThroughputStation.Step := SEND_SHUTTLE;
-			ELSE
-				ThroughputStation.TrgGetInfo.Execute := FALSE;
-				ThroughputStation.Step := WAIT;
-			END_IF
+			ThroughputStation.Shuttle := ThroughputStation.TrgGetInfo.TrgPointInfo.Axis;
+			ThroughputStation.TrgGetInfo.Execute := FALSE;
+			ThroughputCounter := ThroughputCounter + 1;
+			ThroughputStation.Step := SEND_SHUTTLE;
 			
 		SEND_SHUTTLE:
 			ThroughputStation.RoutedMoveAbs.Axis := ADR(ThroughputStation.Shuttle);

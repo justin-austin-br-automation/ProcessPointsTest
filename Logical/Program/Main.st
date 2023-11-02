@@ -146,6 +146,9 @@ PROGRAM _CYCLIC
 				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Execute := FALSE;
 			END_FOR
 			
+			ThroughputTimer.IN := TRUE;
+			ThroughputTimer.PT := T#60s;
+			
 			Step := MOVING;
 			
 		MOVING:
@@ -200,6 +203,7 @@ PROGRAM _CYCLIC
 			gShuttleList[i].RoutedMoveAbs();
 		END_IF
 	END_FOR
+	ThroughputTimer();
 END_PROGRAM
 
 PROGRAM _EXIT

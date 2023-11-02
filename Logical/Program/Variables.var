@@ -13,15 +13,14 @@ VAR
 	WorkStation4 : ProcessPointsFubsType;
 	MaintenanceStation : ProcessPointsFubsType;
 	ThroughputStation : ProcessPointsFubsType;
+	ThroughputTimer : TON;
 END_VAR
 (*Structures*)
 (*Constants*)
-VAR CONSTANT
-	SHUTTLE_PARAMETERS : TrakAssemblyParameterType := (Velocity:=2.0,Acceleration:=20.0,Deceleration:=20.0);
-END_VAR
 VAR
-	MAX_SHUTTLES_TO_STATION_1 : UINT := 3;
-	MAINTENANCE_TIMER_LENGTH : TIME := T#10s;
+	SHUTTLE_PARAMETERS : {REDUND_UNREPLICABLE} TrakAssemblyParameterType := (Velocity:=2.0,Acceleration:=20.0,Deceleration:=20.0);
+	MAX_SHUTTLES_TO_STATION_1 : {REDUND_UNREPLICABLE} UINT := 3;
+	MAINTENANCE_TIMER_LENGTH : {REDUND_UNREPLICABLE} TIME := T#30s;
 END_VAR
 (*Variables*)
 VAR
@@ -29,4 +28,6 @@ VAR
 	i : UINT;
 	CurrentShuttleNumber : UINT;
 	ShuttlesToStation1 : UINT;
+	CurrentThroughput : INT := 0;
+	ThroughputCounter : INT := 0;
 END_VAR
