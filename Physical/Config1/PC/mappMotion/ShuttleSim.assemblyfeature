@@ -4,7 +4,7 @@
   <Element ID="ShuttleSim" Type="assemblyfeature">
     <Selector ID="Type" Value="InitShuttleSim">
       <Group ID="InitShuttleSim[1]">
-        <Property ID="SectorRef" Value="MainLoop" />
+        <Property ID="SectorRef" Value="SectorMainLoop" />
         <Property ID="Orientation" Value="Positive" />
         <Selector ID="ShuttleDefinition" Value="ShuttleSetDefinition">
           <Property ID="StartPosition" Value="0.1" />

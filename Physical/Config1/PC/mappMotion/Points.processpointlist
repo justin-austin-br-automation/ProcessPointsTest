@@ -59,7 +59,7 @@
     </Selector>
     <Selector ID="ProcessPoint[8]">
       <Property ID="Name" Value="PPStation0TrgPoint" />
-      <Property ID="SectorRef" Value="BarrierTrgPoint" />
+      <Property ID="SectorRef" Value="SectorWorkZoneTrgPoint" />
       <Property ID="Position" Value="0.026" />
       <Property ID="PositionRelativeTo" Value="FromEnd" />
       <Property ID="TriggerEventBufferSize" Value="10" />

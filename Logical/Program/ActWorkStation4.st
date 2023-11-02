@@ -37,7 +37,7 @@ ACTION ActWorkStation4:
 			
 		SEND_SHUTTLE:
 			WorkStation4.RoutedMoveAbs.Axis := ADR(WorkStation4.Shuttle);
-			WorkStation4.RoutedMoveAbs.Sector := ADR(Barrier);
+			WorkStation4.RoutedMoveAbs.Sector := ADR(SectorBuffer);
 			WorkStation4.RoutedMoveAbs.Position := 0.2;
 			WorkStation4.RoutedMoveAbs.Velocity := gTrakAsm.Parameter.Velocity;
 			WorkStation4.RoutedMoveAbs.Acceleration := gTrakAsm.Parameter.Acceleration;

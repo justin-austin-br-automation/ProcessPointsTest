@@ -35,7 +35,7 @@ ACTION ActBufferBarrier:
 			
 		SEND_SHUTTLE:
 			BufferBarrier.RoutedMoveAbs.Axis := ADR(BufferBarrier.Shuttle);
-			BufferBarrier.RoutedMoveAbs.Sector := ADR(ProcessPoints);
+			BufferBarrier.RoutedMoveAbs.Sector := ADR(SectorWorkZone);
 			BufferBarrier.RoutedMoveAbs.Position := 0.0;
 			BufferBarrier.RoutedMoveAbs.Velocity := gTrakAsm.Parameter.Velocity;
 			BufferBarrier.RoutedMoveAbs.Acceleration := gTrakAsm.Parameter.Acceleration;

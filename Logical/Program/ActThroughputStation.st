@@ -38,7 +38,7 @@ ACTION ActThroughputStation:
 			
 		SEND_SHUTTLE:
 			ThroughputStation.RoutedMoveAbs.Axis := ADR(ThroughputStation.Shuttle);
-			ThroughputStation.RoutedMoveAbs.Sector := ADR(MaintPoint);
+			ThroughputStation.RoutedMoveAbs.Sector := ADR(SectorMaintenancePoint);
 			ThroughputStation.RoutedMoveAbs.Position := 0.33;
 			ThroughputStation.RoutedMoveAbs.Velocity := gTrakAsm.Parameter.Velocity;
 			ThroughputStation.RoutedMoveAbs.Acceleration := gTrakAsm.Parameter.Acceleration;

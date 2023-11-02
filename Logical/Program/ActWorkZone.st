@@ -28,7 +28,7 @@ ACTION ActWorkZone:
 			
 		SEND_SHUTTLE:
 			WorkZone.RoutedMoveAbs.Axis := ADR(WorkZone.Shuttle);
-			WorkZone.RoutedMoveAbs.Sector := ADR(ProcessPoints);
+			WorkZone.RoutedMoveAbs.Sector := ADR(SectorWorkZone);
 			WorkZone.RoutedMoveAbs.Position := 0.495;
 			WorkZone.RoutedMoveAbs.Velocity := gTrakAsm.Parameter.Velocity;
 			WorkZone.RoutedMoveAbs.Acceleration := gTrakAsm.Parameter.Acceleration;

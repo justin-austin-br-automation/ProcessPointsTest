@@ -8,8 +8,8 @@ PROGRAM _INIT
 	AsmReadStatus.Assembly := ADR(gAssembly_1);
 	AsmReadStatus.Enable := TRUE;
 	
-	BufferBarrier.TrgGetInfo.ProcessPoint := ADR(SectorBuffer);
-	BufferBarrier.TrgEnable.ProcessPoint := ADR(SectorBuffer);
+	BufferBarrier.TrgGetInfo.ProcessPoint := ADR(PPBuffer);
+	BufferBarrier.TrgEnable.ProcessPoint := ADR(PPBuffer);
 	BufferBarrier.TrgEnable.Enable := TRUE;
 	
 	WorkZone.TrgGetInfo.ProcessPoint := ADR(PPStation0TrgPoint);
