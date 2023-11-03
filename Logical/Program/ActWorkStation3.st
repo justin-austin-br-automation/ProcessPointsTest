@@ -51,7 +51,7 @@ ACTION ActWorkStation3:
 				END_IF
 			END_FOR
 			
-			WorkStation3.ReadyForShuttle := TRUE;
+			gStation3ReadyForShuttle := TRUE;
 			WorkStation4.ReadyForShuttle := FALSE;
 			WorkStation3.Step := WAIT;
 		

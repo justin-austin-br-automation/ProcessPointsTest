@@ -1,6 +1,6 @@
 (*Function blocks*)
 VAR
-	RoutedMoveAbs : MC_BR_RoutedMoveAbs_AcpTrak;
+	ElasticMoveAbs : MC_BR_ElasticMoveAbs_AcpTrak;
 	TrgEnable : MC_BR_TrgPointEnable_AcpTrak;
 	TrgGetInfo : MC_BR_TrgPointGetInfo_AcpTrak;
 	Timer : TON;

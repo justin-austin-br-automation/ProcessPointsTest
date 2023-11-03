@@ -8,10 +8,6 @@ PROGRAM _INIT
 	AsmReadStatus.Assembly := ADR(gAssembly_1);
 	AsmReadStatus.Enable := TRUE;
 	
-	WorkStation2.TrgGetInfo.ProcessPoint := ADR(PPStation2);
-	WorkStation2.TrgEnable.ProcessPoint := ADR(PPStation2);
-	WorkStation2.TrgEnable.Enable := TRUE;
-	
 	WorkStation3.TrgGetInfo.ProcessPoint := ADR(PPStation3);
 	WorkStation3.TrgEnable.ProcessPoint := ADR(PPStation3);
 	WorkStation3.TrgEnable.Enable := TRUE;
@@ -138,8 +134,8 @@ PROGRAM _CYCLIC
 		MOVING:
 //			ActBufferBarrier;
 //			ActWorkZone;
-			ActWorkStation1;
-			ActWorkStation2;
+//			ActWorkStation1;
+//			ActWorkStation2;
 			ActWorkStation3;
 			ActWorkStation4;
 			ActThroughputStation;

@@ -20,7 +20,7 @@ PROGRAM _CYCLIC
 			
 		DIRECTION_CHECK:
 			IF TrgGetInfo.TrgPointInfo.Event = mcACPTRAK_TP_PASSED_POSITIVE THEN
-				Shuttle := WorkStation1.TrgGetInfo.TrgPointInfo.Axis;
+				Shuttle := TrgGetInfo.TrgPointInfo.Axis;
 				
 				FOR i := 1 TO gMAX_SHUTTLE_CNT DO
 					IF Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
@@ -39,13 +39,13 @@ PROGRAM _CYCLIC
 			Timer.PT := T#2s;
 			Timer.IN := TRUE;
 			
-			IF Timer.Q  AND WorkStation2.ReadyForShuttle THEN
+			IF Timer.Q  AND gStation2ReadyForShuttle THEN
 				Timer.IN := FALSE;
 				Step := SEND_SHUTTLE;
 			END_IF
 			
 		SEND_SHUTTLE:
-			ElasticMoveAbs.Axis := ADR(WorkStation1.Shuttle);
+			ElasticMoveAbs.Axis := ADR(Shuttle);
 			ElasticMoveAbs.Position := 0.99;
 			ElasticMoveAbs.Velocity := gTrakAsm.Parameter.Velocity;
 			ElasticMoveAbs.Acceleration := gTrakAsm.Parameter.Acceleration;
@@ -61,17 +61,17 @@ PROGRAM _CYCLIC
 			END_FOR
 			
 			gStation1ReadyForShuttle := TRUE;
-			WorkStation2.ReadyForShuttle := FALSE;
+			gStation2ReadyForShuttle := FALSE;
 			Step := WAIT;
 		
 	END_CASE
 	
 	gStation1EventCount := TrgEnable.EventCount;
 	
-	WorkStation1.ElasticMoveAbs();
-	WorkStation1.TrgEnable();
-	WorkStation1.TrgGetInfo();
-	WorkStation1.Timer();
+	ElasticMoveAbs();
+	TrgEnable();
+	TrgGetInfo();
+	Timer();
 END_PROGRAM
 
 PROGRAM _EXIT
