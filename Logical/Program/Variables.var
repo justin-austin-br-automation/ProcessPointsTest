@@ -19,7 +19,6 @@ END_VAR
 (*Constants*)
 VAR CONSTANT
 	SHUTTLE_PARAMETERS : TrakAssemblyParameterType := (Velocity:=2.0,Acceleration:=20.0,Deceleration:=20.0);
-	MAX_SHUTTLES_TO_STATION_1 : UINT := 3;
 	MAINTENANCE_TIMER_LENGTH : TIME := T#30s;
 END_VAR
 (*Variables*)

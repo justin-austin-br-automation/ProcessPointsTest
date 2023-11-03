@@ -3,6 +3,14 @@
 <SwConfiguration CpuAddress="SL1" xmlns="http://br-automation.co.at/AS/SwConfiguration">
   <TaskClass Name="Cyclic#1">
     <Task Name="Program" Source="Program.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="BufferZone" Source="BufferZone.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="WorkZone" Source="WorkZone.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="WorkStatio" Source="WorkStation1.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="WorkStati1" Source="WorkStation2.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="WorkStati2" Source="WorkStation3.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="WorkStati3" Source="WorkStation4.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="Throughput" Source="ThroughputStation.prg" Memory="UserROM" Language="IEC" Debugging="true" />
+    <Task Name="Maintenanc" Source="MaintenanceStation.prg" Memory="UserROM" Language="IEC" Debugging="true" />
   </TaskClass>
   <TaskClass Name="Cyclic#2" />
   <TaskClass Name="Cyclic#3" />

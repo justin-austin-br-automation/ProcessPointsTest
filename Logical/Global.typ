@@ -50,4 +50,12 @@ TYPE
 		RTE_TO_MAINT := 60,
 		AT_MAINT := 65
 		);
+	ProcessPointStateEnum : 
+		(
+		WAIT,
+		DO_NOTHING,
+		DIRECTION_CHECK,
+		PROCESS,
+		SEND_SHUTTLE
+		);
 END_TYPE

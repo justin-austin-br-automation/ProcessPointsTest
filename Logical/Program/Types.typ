@@ -14,15 +14,6 @@ TYPE
 		Shuttle : McAxisType;
 		ReadyForShuttle : BOOL := TRUE;
 	END_STRUCT;
-	ProcessPointStateEnum : 
-		(
-		WAIT,
-		DO_NOTHING,
-		DIRECTION_CHECK,
-		PROCESS,
-		SEND_SHUTTLE,
-		New_Member
-		);
 	StateMachineEnum : 
 		(
 		POWER_OFF := 10,

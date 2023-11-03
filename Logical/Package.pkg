@@ -6,5 +6,13 @@
     <Object Type="File" Description="Global variables">Global.var</Object>
     <Object Type="Package" Description="Global libraries">Libraries</Object>
     <Object Type="Program" Language="IEC">Program</Object>
+    <Object Type="Program" Language="IEC">BufferZone</Object>
+    <Object Type="Program" Language="IEC">WorkZone</Object>
+    <Object Type="Program" Language="IEC">WorkStation1</Object>
+    <Object Type="Program" Language="IEC">WorkStation2</Object>
+    <Object Type="Program" Language="IEC">WorkStation3</Object>
+    <Object Type="Program" Language="IEC">WorkStation4</Object>
+    <Object Type="Program" Language="IEC">ThroughputStation</Object>
+    <Object Type="Program" Language="IEC">MaintenanceStation</Object>
   </Objects>
 </Package>

@@ -5,7 +5,7 @@ ACTION ActWorkStation1:
 			WorkStation1.ElasticMoveAbs.Execute := FALSE;
 			
 			IF WorkStation1.TrgEnable.EventCount > 0 THEN
-				WorkStation1.ReadyForShuttle := FALSE;
+				gStation1ReadyForShuttle := FALSE;
 				WorkStation1.TrgGetInfo.Execute := TRUE;
 				WorkStation1.Step := DIRECTION_CHECK;
 			END_IF
@@ -52,11 +52,13 @@ ACTION ActWorkStation1:
 				END_IF
 			END_FOR
 			
-			WorkStation1.ReadyForShuttle := TRUE;
+			gStation1ReadyForShuttle := TRUE;
 			WorkStation2.ReadyForShuttle := FALSE;
 			WorkStation1.Step := WAIT;
 		
 	END_CASE
+	
+	gStation1EventCount := WorkStation1.TrgEnable.EventCount;
 	
 	WorkStation1.ElasticMoveAbs();
 	WorkStation1.TrgEnable();

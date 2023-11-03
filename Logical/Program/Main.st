@@ -8,22 +8,6 @@ PROGRAM _INIT
 	AsmReadStatus.Assembly := ADR(gAssembly_1);
 	AsmReadStatus.Enable := TRUE;
 	
-	BufferBarrier.TrgGetInfo.ProcessPoint := ADR(PPBuffer);
-	BufferBarrier.TrgEnable.ProcessPoint := ADR(PPBuffer);
-	BufferBarrier.TrgEnable.Enable := TRUE;
-	
-	WorkZone.TrgGetInfo.ProcessPoint := ADR(PPStation0TrgPoint);
-	WorkZone.TrgEnable.ProcessPoint := ADR(PPStation0TrgPoint);
-	WorkZone.TrgEnable.Enable := TRUE;
-	WorkZone.Command.ProcessPoint := ADR(PPStation0);
-	WorkZone.Command.Command := mcACPTRAK_BARRIER_CLOSE;
-	WorkZone.Command.Execute := TRUE;
-	WorkZone.Command();
-	
-	WorkStation1.TrgGetInfo.ProcessPoint := ADR(PPStation1);
-	WorkStation1.TrgEnable.ProcessPoint := ADR(PPStation1);
-	WorkStation1.TrgEnable.Enable := TRUE;
-	
 	WorkStation2.TrgGetInfo.ProcessPoint := ADR(PPStation2);
 	WorkStation2.TrgEnable.ProcessPoint := ADR(PPStation2);
 	WorkStation2.TrgEnable.Enable := TRUE;
@@ -152,8 +136,8 @@ PROGRAM _CYCLIC
 			Step := MOVING;
 			
 		MOVING:
-			ActBufferBarrier;
-			ActWorkZone;
+//			ActBufferBarrier;
+//			ActWorkZone;
 			ActWorkStation1;
 			ActWorkStation2;
 			ActWorkStation3;
