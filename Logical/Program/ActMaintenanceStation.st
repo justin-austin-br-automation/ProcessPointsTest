@@ -36,7 +36,7 @@ ACTION ActMaintenanceStation:
 			END_IF
 			
 		SEND_SHUTTLE:
-			MaintenanceStation.RoutedMoveAbs.Axis := ADR(ThroughputStation.Shuttle);
+			MaintenanceStation.RoutedMoveAbs.Axis := ADR(MaintenanceStation.Shuttle);
 			MaintenanceStation.RoutedMoveAbs.Sector := ADR(SectorBuffer);
 			MaintenanceStation.RoutedMoveAbs.Position := 0.2;
 			MaintenanceStation.RoutedMoveAbs.Velocity := gTrakAsm.Parameter.Velocity;

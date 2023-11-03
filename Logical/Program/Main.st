@@ -8,10 +8,6 @@ PROGRAM _INIT
 	AsmReadStatus.Assembly := ADR(gAssembly_1);
 	AsmReadStatus.Enable := TRUE;
 	
-	MaintenanceStation.TrgGetInfo.ProcessPoint := ADR(PPMaintenancePoint);
-	MaintenanceStation.TrgEnable.ProcessPoint := ADR(PPMaintenancePoint);
-	MaintenanceStation.TrgEnable.Enable := TRUE;
-	
 	(* Initializing parameters for shuttle movements *)
 	gTrakAsm.Parameter := SHUTTLE_PARAMETERS;
 END_PROGRAM
@@ -127,7 +123,7 @@ PROGRAM _CYCLIC
 //			ActWorkStation3;
 //			ActWorkStation4;
 //			ActThroughputStation;
-			ActMaintenanceStation;
+//			ActMaintenanceStation;
 			
 			IF gTrakAsm.Command.StopMovement THEN
 				gTrakAsm.Command.StopMovement := FALSE;
