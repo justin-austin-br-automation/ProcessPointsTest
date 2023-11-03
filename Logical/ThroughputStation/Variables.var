@@ -1,8 +1,22 @@
-
+(*Function blocks*)
 VAR
-
+	RoutedMoveAbs : MC_BR_RoutedMoveAbs_AcpTrak;
+	TrgEnable : MC_BR_TrgPointEnable_AcpTrak;
+	TrgGetInfo : MC_BR_TrgPointGetInfo_AcpTrak;
+	Timer : TON;
 END_VAR
-
+(*Enumerations*)
+VAR
+	Step : ProcessPointStateEnum;
+END_VAR
+(*Variables*)
+VAR
+	Shuttle : McAxisType;
+	i : UINT;
+	ShuttlesToStation1 : UINT;
+	ThroughputCounter : INT := 0;
+END_VAR
+(*Constants*)
 VAR CONSTANT
-
+	MAINTENANCE_TIMER_LENGTH : TIME := T#30s;
 END_VAR

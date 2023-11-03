@@ -2,6 +2,7 @@
 VAR
 	gTrakAsm : TrakAssemblyControlType;
 	gRoutedMoveVel : MC_BR_RoutedMoveVel_AcpTrak;
+	gThroughputTimer : TON;
 END_VAR
 (*Structures*)
 VAR
@@ -14,6 +15,7 @@ VAR
 	gStation2ReadyForShuttle : BOOL := TRUE;
 	gStation3ReadyForShuttle : BOOL := TRUE;
 	gStation4ReadyForShuttle : BOOL := TRUE;
+	gCurrentThroughput : INT := 0;
 END_VAR
 (*Constants*)
 VAR CONSTANT

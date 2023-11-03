@@ -8,17 +8,9 @@ PROGRAM _INIT
 	AsmReadStatus.Assembly := ADR(gAssembly_1);
 	AsmReadStatus.Enable := TRUE;
 	
-	WorkStation4.TrgGetInfo.ProcessPoint := ADR(PPStation4);
-	WorkStation4.TrgEnable.ProcessPoint := ADR(PPStation4);
-	WorkStation4.TrgEnable.Enable := TRUE;
-	
 	MaintenanceStation.TrgGetInfo.ProcessPoint := ADR(PPMaintenancePoint);
 	MaintenanceStation.TrgEnable.ProcessPoint := ADR(PPMaintenancePoint);
 	MaintenanceStation.TrgEnable.Enable := TRUE;
-	
-	ThroughputStation.TrgGetInfo.ProcessPoint := ADR(PPThroughput);
-	ThroughputStation.TrgEnable.ProcessPoint := ADR(PPThroughput);
-	ThroughputStation.TrgEnable.Enable := TRUE;
 	
 	(* Initializing parameters for shuttle movements *)
 	gTrakAsm.Parameter := SHUTTLE_PARAMETERS;
@@ -122,8 +114,8 @@ PROGRAM _CYCLIC
 				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Execute := FALSE;
 			END_FOR
 			
-			ThroughputTimer.IN := TRUE;
-			ThroughputTimer.PT := T#60s;
+			gThroughputTimer.IN := TRUE;
+			gThroughputTimer.PT := T#60s;
 			
 			Step := MOVING;
 			
@@ -133,8 +125,8 @@ PROGRAM _CYCLIC
 //			ActWorkStation1;
 //			ActWorkStation2;
 //			ActWorkStation3;
-			ActWorkStation4;
-			ActThroughputStation;
+//			ActWorkStation4;
+//			ActThroughputStation;
 			ActMaintenanceStation;
 			
 			IF gTrakAsm.Command.StopMovement THEN
@@ -179,7 +171,9 @@ PROGRAM _CYCLIC
 			gShuttleList[i].RoutedMoveAbs();
 		END_IF
 	END_FOR
-	ThroughputTimer();
+	gThroughputTimer();
+	
+	gCurrentThroughput;
 END_PROGRAM
 
 PROGRAM _EXIT
