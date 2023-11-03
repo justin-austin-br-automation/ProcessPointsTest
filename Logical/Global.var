@@ -9,11 +9,11 @@ VAR
 END_VAR
 (*Variables*)
 VAR
-	gStation1ReadyForShuttle : BOOL := TRUE;
 	gStation1EventCount : UINT;
+	gStation1ReadyForShuttle : BOOL := TRUE;
 	gStation2ReadyForShuttle : BOOL := TRUE;
-	gStation2EventCount : UINT;
 	gStation3ReadyForShuttle : BOOL := TRUE;
+	gStation4ReadyForShuttle : BOOL := TRUE;
 END_VAR
 (*Constants*)
 VAR CONSTANT

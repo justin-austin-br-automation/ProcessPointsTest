@@ -52,7 +52,7 @@ ACTION ActWorkStation4:
 				END_IF
 			END_FOR
 			
-			WorkStation4.ReadyForShuttle := TRUE;
+			gStation4ReadyForShuttle := TRUE;
 			WorkStation4.Step := WAIT;
 		
 	END_CASE
