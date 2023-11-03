@@ -20,9 +20,6 @@ PROGRAM _CYCLIC
 	CASE Step OF
 		
 		POWER_OFF:
-			BufferBarrier.Command.Execute := FALSE;
-			WorkZone.Command.Execute := FALSE;
-			
 			IF gTrakAsm.Status.Disabled THEN
 				AsmPowerOff.Execute := FALSE;
 				Step := POWERED_OFF;
@@ -116,15 +113,6 @@ PROGRAM _CYCLIC
 			Step := MOVING;
 			
 		MOVING:
-//			ActBufferBarrier;
-//			ActWorkZone;
-//			ActWorkStation1;
-//			ActWorkStation2;
-//			ActWorkStation3;
-//			ActWorkStation4;
-//			ActThroughputStation;
-//			ActMaintenanceStation;
-			
 			IF gTrakAsm.Command.StopMovement THEN
 				gTrakAsm.Command.StopMovement := FALSE;
 				Step := STOPPING;
