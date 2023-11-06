@@ -24,6 +24,7 @@ PROGRAM _CYCLIC
 				FOR i := 1 TO gMAX_SHUTTLE_CNT DO
 					IF Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
 						gShuttleList[i].State := AT_MAINT;
+						ShuttleIndex := i;
 					END_IF
 				END_FOR
 				
@@ -35,7 +36,7 @@ PROGRAM _CYCLIC
 			END_IF
 			
 		PROCESS:
-			Timer.PT := T#5s;
+			Timer.PT := gMAINTENCANCE_TIMER_LENGTH;
 			Timer.IN := TRUE;
 			
 			IF Timer.Q THEN
@@ -46,7 +47,7 @@ PROGRAM _CYCLIC
 		SEND_SHUTTLE:
 			RoutedMoveAbs.Axis := ADR(Shuttle);
 			RoutedMoveAbs.Sector := ADR(SectorBuffer);
-			RoutedMoveAbs.Position := 0.2;
+			RoutedMoveAbs.Position := gPROCESS_POINT_LOCATIONS.BUFFER;
 			RoutedMoveAbs.Velocity := gTrakAsm.Parameter.Velocity;
 			RoutedMoveAbs.Acceleration := gTrakAsm.Parameter.Acceleration;
 			RoutedMoveAbs.Deceleration := gTrakAsm.Parameter.Deceleration;
@@ -54,11 +55,7 @@ PROGRAM _CYCLIC
 			RoutedMoveAbs.BufferMode := mcABORTING;
 			RoutedMoveAbs.Execute := TRUE;
 			
-			FOR i := 1 TO gMAX_SHUTTLE_CNT DO
-				IF Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
-					gShuttleList[i].State := RTE_TO_BUFFER;
-				END_IF
-			END_FOR
+			gShuttleList[ShuttleIndex].State := RTE_TO_BUFFER;
 			
 			Step := WAIT;
 		

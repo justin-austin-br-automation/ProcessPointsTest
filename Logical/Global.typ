@@ -30,6 +30,17 @@ TYPE
 		RoutedMoveAbs : MC_BR_RoutedMoveAbs_AcpTrak;
 		State : ShuttleStateEnum := RTE_TO_BUFFER;
 	END_STRUCT;
+	ProcessPointLocations : 	STRUCT 
+		THROUGHPUT : REAL;
+		BUFFER : REAL;
+		WORK_ZONE : REAL;
+		WORK_ZONE_TRG_POINT : REAL;
+		WORK_STATION1 : REAL;
+		WORK_STATION2 : REAL;
+		WORK_STATION3 : REAL;
+		WORK_STATION4 : REAL;
+		MAINTENANCE_POINT : REAL;
+	END_STRUCT;
 END_TYPE
 
 (*Enumerations*)

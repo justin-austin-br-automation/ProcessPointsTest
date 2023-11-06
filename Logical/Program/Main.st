@@ -91,7 +91,7 @@ PROGRAM _CYCLIC
 			FOR CurrentShuttleNumber := 1 TO gTrakAsm.ShuttleCnt DO
 				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Axis := ADR(gShuttleList[CurrentShuttleNumber].Axis);
 				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Sector := ADR(SectorBuffer);
-				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Position := 0.2;
+				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Position := gPROCESS_POINT_LOCATIONS.BUFFER;
 				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Velocity := gTrakAsm.Parameter.Velocity;
 				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Acceleration := gTrakAsm.Parameter.Acceleration;
 				gShuttleList[CurrentShuttleNumber].RoutedMoveAbs.Deceleration := gTrakAsm.Parameter.Deceleration;
@@ -108,7 +108,7 @@ PROGRAM _CYCLIC
 			END_FOR
 			
 			gThroughputTimer.IN := TRUE;
-			gThroughputTimer.PT := T#60s;
+			gThroughputTimer.PT := gTHROUGHPUT_TIMER_LENGTH;
 			
 			Step := MOVING;
 			

@@ -31,6 +31,7 @@ PROGRAM _CYCLIC
 				FOR i := 1 TO gMAX_SHUTTLE_CNT DO
 					IF  Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
 						gShuttleList[i].State := AT_BUFFER;
+						ShuttleIndex := i;
 					END_IF
 				END_FOR
 				
@@ -44,7 +45,7 @@ PROGRAM _CYCLIC
 		SEND_SHUTTLE:
 			RoutedMoveAbs.Axis := ADR( Shuttle);
 			RoutedMoveAbs.Sector := ADR(SectorWorkZone);
-			RoutedMoveAbs.Position := 0.0;
+			RoutedMoveAbs.Position := gPROCESS_POINT_LOCATIONS.WORK_ZONE;
 			RoutedMoveAbs.Velocity := gTrakAsm.Parameter.Velocity;
 			RoutedMoveAbs.Acceleration := gTrakAsm.Parameter.Acceleration;
 			RoutedMoveAbs.Deceleration := gTrakAsm.Parameter.Deceleration;
@@ -52,11 +53,7 @@ PROGRAM _CYCLIC
 			RoutedMoveAbs.BufferMode := mcABORTING;
 			RoutedMoveAbs.Execute := TRUE;
 			
-			FOR i := 1 TO gMAX_SHUTTLE_CNT DO
-				IF  Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
-					gShuttleList[i].State := RTE_TO_STATION_1;
-				END_IF
-			END_FOR
+			gShuttleList[ShuttleIndex].State := RTE_TO_STATION_1;
 			
 			Step := WAIT;
 		

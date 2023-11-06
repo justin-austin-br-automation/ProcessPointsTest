@@ -13,6 +13,7 @@ END_VAR
 VAR
 	Shuttle : McAxisType;
 	i : UINT;
+	ShuttleIndex : UINT;
 	ShuttlesToStation1 : UINT;
 	ThroughputCounter : INT := 0;
 END_VAR

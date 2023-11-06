@@ -25,6 +25,7 @@ PROGRAM _CYCLIC
 				FOR i := 1 TO gMAX_SHUTTLE_CNT DO
 					IF Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
 						gShuttleList[i].State := AT_STATION_1;
+						ShuttleIndex := i;
 					END_IF
 				END_FOR
 				
@@ -36,7 +37,7 @@ PROGRAM _CYCLIC
 			END_IF
 			
 		PROCESS:
-			Timer.PT := T#2s;
+			Timer.PT := gPROCESS_TIMER_LENGTH;
 			Timer.IN := TRUE;
 			
 			IF Timer.Q  AND gStation2ReadyForShuttle THEN
@@ -46,7 +47,7 @@ PROGRAM _CYCLIC
 			
 		SEND_SHUTTLE:
 			ElasticMoveAbs.Axis := ADR(Shuttle);
-			ElasticMoveAbs.Position := 0.99;
+			ElasticMoveAbs.Position := gPROCESS_POINT_LOCATIONS.WORK_STATION2;
 			ElasticMoveAbs.Velocity := gTrakAsm.Parameter.Velocity;
 			ElasticMoveAbs.Acceleration := gTrakAsm.Parameter.Acceleration;
 			ElasticMoveAbs.Deceleration := gTrakAsm.Parameter.Deceleration;
@@ -54,11 +55,7 @@ PROGRAM _CYCLIC
 			ElasticMoveAbs.BufferMode := mcABORTING;
 			ElasticMoveAbs.Execute := TRUE;
 			
-			FOR i := 1 TO gMAX_SHUTTLE_CNT DO
-				IF Shuttle.controlif = gShuttleList[i].Axis.controlif THEN
-					gShuttleList[i].State := RTE_TO_STATION_2;
-				END_IF
-			END_FOR
+			gShuttleList[ShuttleIndex].State := RTE_TO_STATION_2;
 			
 			gStation1ReadyForShuttle := TRUE;
 			gStation2ReadyForShuttle := FALSE;

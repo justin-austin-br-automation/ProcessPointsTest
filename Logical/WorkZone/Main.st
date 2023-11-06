@@ -41,7 +41,7 @@ PROGRAM _CYCLIC
 		SEND_SHUTTLE:
 			RoutedMoveAbs.Axis := ADR(Shuttle);
 			RoutedMoveAbs.Sector := ADR(SectorWorkZone);
-			RoutedMoveAbs.Position := 0.495;
+			RoutedMoveAbs.Position := gPROCESS_POINT_LOCATIONS.WORK_STATION1;
 			RoutedMoveAbs.Velocity := gTrakAsm.Parameter.Velocity;
 			RoutedMoveAbs.Acceleration := gTrakAsm.Parameter.Acceleration;
 			RoutedMoveAbs.Deceleration := gTrakAsm.Parameter.Deceleration;

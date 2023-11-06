@@ -22,32 +22,28 @@ PROGRAM _CYCLIC
 			Timer.PT := MAINTENANCE_TIMER_LENGTH;
 			Timer.IN := TRUE;
 			
-			IF Timer.Q AND TrgEnable.EventCount > 0 THEN
-				Timer.IN := FALSE;
+			IF TrgEnable.EventCount > 0 THEN
 				TrgGetInfo.Execute := TRUE;
 				Step := DIRECTION_CHECK;
-			ELSIF NOT Timer.Q AND TrgEnable.EventCount > 0 THEN
-				TrgGetInfo.Execute := TRUE;
-				Step := DO_NOTHING;
 			END_IF
 			
-		DO_NOTHING:
-			IF TrgGetInfo.Done THEN
+		DIRECTION_CHECK:
+			IF Timer.Q THEN
+				Timer.IN := FALSE;
+				Shuttle := TrgGetInfo.TrgPointInfo.Axis;
+				TrgGetInfo.Execute := FALSE;
+				ThroughputCounter := ThroughputCounter + 1;
+				Step := SEND_SHUTTLE;
+			ELSE
 				TrgGetInfo.Execute := FALSE;
 				ThroughputCounter := ThroughputCounter + 1;
 				Step := WAIT;
 			END_IF
 			
-		DIRECTION_CHECK:
-			Shuttle := TrgGetInfo.TrgPointInfo.Axis;
-			TrgGetInfo.Execute := FALSE;
-			ThroughputCounter := ThroughputCounter + 1;
-			Step := SEND_SHUTTLE;
-			
 		SEND_SHUTTLE:
 			RoutedMoveAbs.Axis := ADR(Shuttle);
 			RoutedMoveAbs.Sector := ADR(SectorMaintenancePoint);
-			RoutedMoveAbs.Position := 0.34;
+			RoutedMoveAbs.Position := gPROCESS_POINT_LOCATIONS.MAINTENANCE_POINT;
 			RoutedMoveAbs.Velocity := gTrakAsm.Parameter.Velocity;
 			RoutedMoveAbs.Acceleration := gTrakAsm.Parameter.Acceleration;
 			RoutedMoveAbs.Deceleration := gTrakAsm.Parameter.Deceleration;
